@@ -22,10 +22,6 @@ gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
 
-source 'https://rails-assets.org' do
-  gem 'rails-assets-plugin'
-end
-
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
