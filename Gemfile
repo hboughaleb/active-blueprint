@@ -16,6 +16,12 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'devise'
+gem 'cloudinary'
+
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-plugin'
+end
 
 group :development, :test do
   gem 'pry-byebug'
