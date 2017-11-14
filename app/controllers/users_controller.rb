@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index         # GET /users
   end
 
@@ -19,4 +20,5 @@ class UsersController < ApplicationController
 
   def destroy       # DELETE /users/:id
   end
+
 end

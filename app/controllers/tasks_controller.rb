@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-    def index         # GET /tasks
+
+  def index         # GET /tasks
   end
 
   def show          # GET /tasks/:id
@@ -19,4 +20,5 @@ class TasksController < ApplicationController
 
   def destroy       # DELETE /tasks/:id
   end
+
 end
