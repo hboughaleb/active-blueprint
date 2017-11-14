@@ -1,0 +1,22 @@
+<div class="profile_banner parallax">
+  <div class="banner-content">
+    <div class="image-container">
+      <% if current_user.facebook_picture_url? %>
+        <% image_tag current_user.facebook_picture_url, height: "150px" %>
+      <% else %>
+        <%= cl_image_tag current_user.photo.path, height: 300, width: 400, :crop=>"fill" %>
+      <% end %>
+
+    </div>
+    <h1>
+      <%= @user.first_name %> <%= @user.last_name %>
+    </h1>
+    <% if @user.resume? %>
+      <div class="resume-container">
+        <%= @user.resume %>
+      </div>
+    <% end %>
+    <div class="text-center padded"><%= link_to "Add a new project", new_user_skill_path(@user.id), class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>
