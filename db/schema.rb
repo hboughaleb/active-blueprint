@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114223609) do
+ActiveRecord::Schema.define(version: 20171115183517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,14 @@ ActiveRecord::Schema.define(version: 20171114223609) do
     t.string   "LinkedIn_page"
     t.string   "Facebook_page"
     t.string   "website"
+    t.string   "ln_uid"
+    t.string   "ln_emalil"
+    t.string   "ln_picture_url"
+    t.string   "ln_location"
+    t.string   "industry"
+    t.string   "ln_public_profile_url"
+    t.string   "ln_token"
+    t.datetime "ln_token_expiry"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

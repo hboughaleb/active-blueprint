@@ -6,6 +6,14 @@ GIT
       cloudinary (~> 1.1.0)
       rails (>= 3.2)
 
+GIT
+  remote: https://github.com/Devato/omniauth-linkedin-oauth2.git
+  revision: 57a86aaf25060e05f5e7bcf97a0197f6b3b0044d
+  specs:
+    omniauth-linkedin-oauth2 (0.1.5)
+      omniauth (~> 1.0)
+      omniauth-oauth2
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -255,6 +263,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   omniauth-facebook
+  omniauth-linkedin-oauth2!
   pg
   pry-byebug
   pry-rails
