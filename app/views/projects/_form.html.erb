@@ -1,0 +1,10 @@
+<%= simple_form_for([@project]) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :description %>
+  <%= f.input :projected_budget %>
+  <%= f.input :address %>
+  <%= f.input :status %>
+  <%= f.submit %>
+<% end %>
