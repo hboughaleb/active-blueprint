@@ -6,7 +6,7 @@ class CreateProjects < ActiveRecord::Migration[5.0]
       t.date :start_date
       t.date :end_date
       t.text :description
-      t.decimal :projected_buget
+      t.decimal :projected_budget
       t.string :address
       t.boolean :status
 

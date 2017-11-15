@@ -1,5 +1,8 @@
 class ProjectsController < ApplicationController
 
+    skip_before_action :authenticate_user!, only: :new
+
+
   def index         # GET /projects
   end
 
@@ -7,6 +10,7 @@ class ProjectsController < ApplicationController
   end
 
   def new           # GET /projects/new
+    @project = Project.new
   end
 
   def create        # POST /projects
