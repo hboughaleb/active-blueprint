@@ -55,11 +55,11 @@ ActiveRecord::Schema.define(version: 20171115203852) do
     t.date     "start_date"
     t.date     "end_date"
     t.text     "description"
-    t.decimal  "projected_buget"
+    t.decimal  "projected_budget"
     t.string   "address"
     t.boolean  "status"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
 
