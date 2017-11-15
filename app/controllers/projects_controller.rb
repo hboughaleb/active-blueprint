@@ -1,12 +1,15 @@
 class ProjectsController < ApplicationController
-
-    skip_before_action :authenticate_user!, only: :new
+  before_action :set_project_id, only: [:show]
+  # before_action :set_project, only: [:show, :new]
+  # before_action :set_user, only: [:create]
+  skip_before_action :authenticate_user!, only: :new
 
 
   def index         # GET /projects
   end
 
   def show          # GET /projects/:id
+    @project = Project.find(@project_id)
   end
 
   def new           # GET /projects/new
@@ -14,7 +17,15 @@ class ProjectsController < ApplicationController
   end
 
   def create        # POST /projects
+    @project = Project.new(project_params)
+    @project.user = current_user
+    if @project.save!
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
   end
+
 
   def edit          # GET /projects/:id/edit
   end
@@ -25,4 +36,21 @@ class ProjectsController < ApplicationController
   def destroy       # DELETE /projects/:id
   end
 
+  private
+
+   def set_project
+    @project = Project.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def project_params
+    params.require(:project).permit(:title, :description, :start_date, :end_date, :projected_budget, :address, :status)
+  end
+
+  def set_project_id
+    @project_id = Project.find(params[:id])
+  end
 end
