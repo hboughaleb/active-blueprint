@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show]
-  # before_action :set_project, only: [:show, :new]
-  # before_action :set_user, only: [:create]
+  before_action :set_user, only: [:show]
   skip_before_action :authenticate_user!, only: :new
 
 
@@ -10,7 +9,9 @@ class ProjectsController < ApplicationController
   end
 
   def show          # GET /projects/:id
-    @project = Project.find(@project)
+    if current_user != @user
+      redirect_to root_path
+    end
   end
 
   def new           # GET /projects/new
@@ -45,7 +46,7 @@ class ProjectsController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:id])
   end
 
   def project_params

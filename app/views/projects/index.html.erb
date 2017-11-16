@@ -1,1 +1,8 @@
 <h1>All my projects here</h1>
+
+<div>
+  <% current_user.projects.each do |project| %>
+    <%= project.title %>
+    <%= link_to "Visit", project_path(project) %>
+  <% end %>
+</div>
