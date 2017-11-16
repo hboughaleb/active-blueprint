@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
   has_many :tasks
+  has_many :users, through: :tasks, as: "contributors"
 
   validates :title, presence: true
   validates :start_date, presence: true

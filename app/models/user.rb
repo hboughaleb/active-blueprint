@@ -1,7 +1,9 @@
 class User < ApplicationRecord
 
-  has_many :projects
-  has_many :tasks, through: :projects
+  has_many :projects, as: "projects_as_owner"
+  has_many :projects, through: :tasks, as: "projects_as_contributor"
+  has_many :tasks
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -1,4 +1,4 @@
-<%= simple_form_for (@task), html: { class: "form-group"} do |f| %>
+<%= simple_form_for ([@project, @task] ), html: { class: "form-group"} do |f| %>
   <% if @task.errors.any? %>
     <div id=“error_explanation”>
       <ul>
