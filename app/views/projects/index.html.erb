@@ -1,1 +1,30 @@
+
 <h1>All my projects here</h1>
+
+<div>
+  <% current_user.projects.each do |project| %>
+    <%= project.title %>
+    <%= link_to "Visit", project_path(project) %>
+  <% end %>
+</div>
+
+
+<h1><stong> DIGEST OF ALL PROJECTS BELONGING TO THE CURRENT USER <strong></h1>
+
+<p> perhaps a good spot to break the page with a something before the cards of each project are shown (below).</p>
+
+<div class="main-container">
+  <div class="cards-container col-xs-12 col-sm-9">
+    <% @projects.each do |project| %>
+        <%= render "shared/card", project: project %>
+    <% end %>
+  </div>
+</div>
+
+
+<%= render "shared/footer" %>
+
+
+
+
+
