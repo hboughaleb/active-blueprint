@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, except: [:destroy]
   def index         # GET /tasks
     @tasks = Task.all
   end
@@ -15,8 +16,9 @@ class TasksController < ApplicationController
   def create        # POST /tasks
     @task = Task.new(task_params)
     # @task.user = current_user
+    @task.project = @project
     if @task.save!
-      redirect_to tasks_path(current_user)
+      redirect_to project_tasks_path(current_user)
     else
       render :new
     end
@@ -41,8 +43,12 @@ class TasksController < ApplicationController
 
   private
 
-  def set_task
+  def set_task_project
     @task = Task.find(params[:id])
+  end
+
+  def set_project
+    @project = Project.find(params[:project_id])
   end
 
   def task_params
