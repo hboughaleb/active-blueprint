@@ -1,0 +1,21 @@
+<h1><%= @task.title %></h1>
+
+<p><%= @task.specialty %></p>
+<p><%= @task.priority %></p>
+<p><%= @task.description %></p>
+<p><%= @task.budget %></p>
+<p><%= @task.status %></p>
+<p><%= @task.start_date %></p>
+<p><%= @task.end_date %></p>
+
+<%= link_to "All tasks", tasks_path %>
+<%= link_to 'Edit', edit_task_path(@task) %>
+<%= link_to  "Add a new task", new_task_path %>
+<%= link_to "Delete task", task_path(@task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+
+
+
+
+

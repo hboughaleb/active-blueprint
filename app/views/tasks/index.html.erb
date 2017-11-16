@@ -1,0 +1,12 @@
+<div class="main-container">
+  <p><%= link_to  "Add a new task", new_task_path %></p>
+
+  <% @tasks.each do |task| %>
+    <%= task.specialty %> | <%= task.priority %> | <%= task.title %> | <%= task.description %> | <%= task.budget %> | <%= task.status %> | <%= task.start_date %> | <%= task.end_date %>
+    <%= link_to 'Check', task_path(task) %>
+    <%= link_to 'Edit', edit_task_path(task) %>
+    <%= link_to "Delete task", task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+  <% end %>
+</div>
