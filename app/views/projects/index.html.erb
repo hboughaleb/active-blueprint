@@ -3,7 +3,7 @@
 
 <div class="main-container">
   <div class="cards-container col-xs-12 col-sm-9">
-    <% current_user.projects.each do |project| %>
+    <% @projects.each do |project| %>
         <%= render "shared/card", project: project %>
     <% end %>
   </div>

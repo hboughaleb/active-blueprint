@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
 
   def index         # GET /projects
-    @projects = Project.all
+    @projects = current_user.projects
   end
 
   def show          # GET /projects/:id
