@@ -1,15 +1,16 @@
 class ProjectsController < ApplicationController
-  before_action :set_project_id, only: [:show]
+  before_action :set_project, only: [:show]
   # before_action :set_project, only: [:show, :new]
   # before_action :set_user, only: [:create]
   skip_before_action :authenticate_user!, only: :new
 
 
   def index         # GET /projects
+    @projects = Project.all
   end
 
   def show          # GET /projects/:id
-    @project = Project.find(@project_id)
+    @project = Project.find(@project)
   end
 
   def new           # GET /projects/new
@@ -40,6 +41,7 @@ class ProjectsController < ApplicationController
 
    def set_project
     @project = Project.find(params[:id])
+
   end
 
   def set_user
@@ -48,9 +50,5 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :description, :start_date, :end_date, :projected_budget, :address, :status)
-  end
-
-  def set_project_id
-    @project_id = Project.find(params[:id])
   end
 end
