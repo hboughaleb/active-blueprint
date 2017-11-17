@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: :new
 
 
@@ -29,12 +29,12 @@ class ProjectsController < ApplicationController
 
 
   def edit          # GET /projects/:id/edit
-
   end
 
   def update        # PATCH /projects/:id
     if @project.update(project_params)
-      redirect_to new_project_path(@project)
+      @project.save!
+      redirect_to projects_path(@project)
     else
       render :edit
     end
