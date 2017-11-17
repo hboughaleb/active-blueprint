@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :set_project, except: [:destroy, :full_index]
+  before_action :set_project, except: [ :full_index]
   def index         # GET /tasks
     @tasks = Task.all
   end
@@ -42,7 +42,7 @@ class TasksController < ApplicationController
 
   def destroy       # DELETE /tasks/:id
     @task.destroy
-    redirect_to tasks_path
+    redirect_to project_path(@project)
   end
 
   private
