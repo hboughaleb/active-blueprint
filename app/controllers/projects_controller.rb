@@ -25,9 +25,8 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save!
-      generate = params[:generate][:value]
+      generate = params[:generate][:type]
       if generate != ""
-        raise
         if generate == "Building a Villa"
           Task.create!(specialty: "Founder", project: @project, title: "Build a foundation", budget: "1000000", status: "Stand by", start_date: Date.today, end_date: Date.today+1)
           Task.create!(specialty: "Roofer", project: @project, title: "Put a roof on it", budget: "10000", status: "Stand by", start_date: Date.today, end_date: Date.today+3)
