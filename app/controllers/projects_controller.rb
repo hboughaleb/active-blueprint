@@ -21,10 +21,24 @@ class ProjectsController < ApplicationController
   end
 
   def create        # POST /projects
+
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save!
-      redirect_to project_path(current_user)
+      generate = params[:generate][:value]
+      if generate != ""
+        raise
+        if generate == "Building a Villa"
+          Task.create!(specialty: "Founder", project: @project, title: "Build a foundation", budget: "1000000", status: "Stand by", start_date: Date.today, end_date: Date.today+1)
+          Task.create!(specialty: "Roofer", project: @project, title: "Put a roof on it", budget: "10000", status: "Stand by", start_date: Date.today, end_date: Date.today+3)
+          Task.create!(specialty: "Waller", project: @project, title: "Walls would be good", budget: "1000000", status: "Stand by", start_date: Date.today, end_date: Date.today+5)
+        elsif "Remodeling an Apartment"
+          Task.create!(specialty: "Swinger", project: @project, title: "Tear down the walls", budget: "1000000", status: "Stand by", start_date: Date.today, end_date: Date.today+1)
+          Task.create!(specialty: "Finisher", project: @project, title: "Finish the floors", budget: "10000", status: "Stand by", start_date: Date.today, end_date: Date.today+3)
+          Task.create!(specialty: "Painter", project: @project, title: "Paint walls", budget: "1000000", status: "Stand by", start_date: Date.today, end_date: Date.today+5)
+        end
+      end
+      redirect_to projects_path(@project)
     else
       render :new
     end

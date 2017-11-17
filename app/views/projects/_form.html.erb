@@ -15,6 +15,9 @@
     <%= f.input :description, input_html: { placeholder: "be specific...", class: 'form-control' } %>
     <%= f.input :projected_budget, input_html: { placeholder: "", class: 'form-control' } %>
     <%= f.input :status, collection: [ "Stand by", "Pending Ok", "Pending Blocked", "Closed", "Adandonned", "Completed"], input_html: {  class: 'form-control' } %>
+    <%= simple_fields_for :generate do |o| %>
+      <%= o.input :value, collection: [ "Building a Villa", "Remodeling an Apartment"], input_html: {  class: 'form-control' } %>
+    <% end %>
     <%= f.input :start_date, input_html: { placeholder: "", class: 'form-control' } %>
     <%= f.input :end_date, input_html: { placeholder: "", class: 'form-control' } %>
   </div>
