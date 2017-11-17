@@ -34,7 +34,7 @@ class TasksController < ApplicationController
 
   def update        # PATCH /tasks/:id
     if @task.update(task_params)
-      redirect_to project_task_path(@task)
+      redirect_to project_task_path(@project, @task)
     else
       render :edit
     end
