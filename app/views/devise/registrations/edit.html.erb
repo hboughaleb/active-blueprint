@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <h2>edit <%= resource_name.to_s.humanize %></h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
@@ -8,10 +8,10 @@
       <%= f.input :email, required: true, autofocus: true %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <p>Currently awaiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
-      <%= f.input :password, autocomplete: "off", hint: "leave blank if no changes are needed", required: false %>
+      <%= f.input :password, autocomplete: "off", hint: "leave this blank if no changes are needed", required: false %>
       <%= f.input :password_confirmation, required: false %>
       <%= f.input :current_password, hint: "to confirm your changes, enter your current password:", required: true %>
     </div>
@@ -23,7 +23,7 @@
 
   <h3>Cancel my account</h3>
 
-  <p>Unhappy? <%= link_to "cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p>Unhappy? <%= link_to "cancel my account", registration_path(resource_name), data: { confirm: "are you sure about this?" }, method: :delete %></p>
 
-  <%= link_to "Back", :back %>
+  <%= link_to "<— Back", :back %>
 </div>
