@@ -29,12 +29,20 @@ class ProjectsController < ApplicationController
 
 
   def edit          # GET /projects/:id/edit
+
   end
 
   def update        # PATCH /projects/:id
+    if @project.update(project_params)
+      redirect_to new_project_path(@project)
+    else
+      render :edit
+    end
   end
 
   def destroy       # DELETE /projects/:id
+    @project.destroy
+    redirect_to projects_path
   end
 
   private
