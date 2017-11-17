@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-  before_action :set_task_project, only: [:show]
+  # before_action :set_task_project, only: [:show]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   skip_before_action :authenticate_user!, only: :new
@@ -27,7 +27,6 @@ class ProjectsController < ApplicationController
     if @project.save!
       generate = params[:generate][:value]
       if generate != ""
-        raise
         if generate == "Building a Villa"
           Task.create!(specialty: "Founder", project: @project, title: "Build a foundation", budget: "1000000", status: "Stand by", start_date: Date.today, end_date: Date.today+1)
           Task.create!(specialty: "Roofer", project: @project, title: "Put a roof on it", budget: "10000", status: "Stand by", start_date: Date.today, end_date: Date.today+3)
@@ -64,9 +63,9 @@ class ProjectsController < ApplicationController
 
   private
 
-  def set_task_project
-    @task = Task.find(params[:id])
-  end
+  # def set_task_project
+  #   @task = Task.find(params[:id])
+  # end
 
   def set_project
     @project = Project.find(params[:id || :project_id])
