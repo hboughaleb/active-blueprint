@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save!
-      redirect_to user_path(current_user)
+      redirect_to projects_path(current_user)
     else
       render :new
     end
