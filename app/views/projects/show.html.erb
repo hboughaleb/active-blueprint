@@ -9,6 +9,18 @@
     <p><%= @project.start_date %></p>
     <p><%= @project.end_date %></p>
     <p><%= @project.status %></p>
+
+    <div>
+      <%= link_to "Edit Project", edit_project_path(@project), class:'button' %>
+    </div>
+
+    <dir>
+      <%= link_to "Delete Project", @project, class:'button', method: :delete %>
+    </dir>
+
+    <div>
+      <a href="#" class="btn-treehouse">message my team</a>
+    </div>
   </div>
   <div class="section">
     <h2>Tasks  <%= link_to "Add a new task", new_project_task_path(@project) %></h2>
