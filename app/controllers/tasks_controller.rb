@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_project, except: [:destroy, :full_index]
   def index         # GET /tasks
     @tasks = Task.all
@@ -47,7 +47,7 @@ class TasksController < ApplicationController
 
   private
 
-  def set_task_project
+  def set_task
     @task = Task.find(params[:id])
   end
 
