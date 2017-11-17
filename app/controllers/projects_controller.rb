@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
+
   before_action :set_task_project, only: [:show]
-  before_action :set_project, only: [:show]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
+
   skip_before_action :authenticate_user!, only: :new
 
 
@@ -33,9 +35,17 @@ class ProjectsController < ApplicationController
   end
 
   def update        # PATCH /projects/:id
+    if @project.update(project_params)
+      @project.save!
+      redirect_to projects_path(@project)
+    else
+      render :edit
+    end
   end
 
   def destroy       # DELETE /projects/:id
+    @project.destroy
+    redirect_to projects_path
   end
 
   private

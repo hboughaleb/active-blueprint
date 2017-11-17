@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
     resources :users, only: [ :show ]
 
-    resources :projects, only: [ :create, :new, :show, :index ] do
+    resources :projects, only: [ :create, :new, :show, :edit, :update, :index, :destroy ] do
       resources :tasks
     end
     get "/all_my_tasks", to: "tasks#full_index", as: "all_tasks"

@@ -1,3 +1,4 @@
+
 <div class="container">
 
   <div class="section">
@@ -24,9 +25,10 @@
         <li><%= task.end_date %></li>
       </ul>
 
-      <%= link_to 'Check', project_task_path(task.project, task) %>
-      <%= link_to 'Edit', edit_project_task_path(task.project, task) %>
-      <%= link_to "Delete task", project_task_path(task.project, task),
+      <%= link_to '', project_task_path(task.project, task),  class:'btn btn-primary %>
+      <p> wanna make tweaks or even scrap it and start over? </p>
+      <%= link_to 'Edit', edit_project_task_path(task.project, task),  class:'btn btn-primary %>
+      <%= link_to "Delete task", project_task_path(task.project, task),  class:'btn btn-primary,
         method: :delete,
         data: { confirm: "Are you sure?" } %>
     <% end %>
@@ -40,6 +42,3 @@
 <h2> (Maybe on to the right side) Location of the project (Geocoding?) </h2>
 
 <p>a button could be handy if we <%= link_to "a handy button", class: "btn-treehouse" %> want to send a message to everyone involved in the job</p> -->
-
-
-

@@ -1,15 +1,14 @@
 
 <div class="container">
-<h1>All my projects here</h1>
-
+  <div class="text-center">
+    <h1>my projects</h1>
+  </div>
   <div class="cards-container col-xs-12 col-sm-9">
-    <% @projects.each do |project| %>
+      <% @projects.each do |project| %>
         <%= render "shared/card", project: project %>
-    <% end %>
+      <% end %>
   </div>
 </div>
-
-
 
 
 
