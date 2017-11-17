@@ -1,7 +1,7 @@
 
+<div class="container">
 <h1>All my projects here</h1>
 
-<div class="main-container">
   <div class="cards-container col-xs-12 col-sm-9">
     <% @projects.each do |project| %>
         <%= render "shared/card", project: project %>
@@ -9,8 +9,6 @@
   </div>
 </div>
 
-
-<%= render "shared/footer" %>
 
 
 
