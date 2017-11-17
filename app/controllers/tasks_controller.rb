@@ -1,8 +1,12 @@
 class TasksController < ApplicationController
   before_action :set_task_project, only: [:show, :edit, :update, :destroy]
-  before_action :set_project, except: [:destroy]
+  before_action :set_project, except: [:destroy, :full_index]
   def index         # GET /tasks
     @tasks = Task.all
+  end
+
+  def full_index
+    @tasks = Task.where(user: current_user)
   end
 
   def show          # GET /tasks/:id
