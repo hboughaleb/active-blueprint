@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :projects, only: [ :create, :new, :show, :edit, :update, :index, :destroy ] do
       resources :tasks
     end
-
+    get "/all_my_tasks", to: "tasks#full_index", as: "all_tasks"
   root to: 'pages#home'
 
 mount Attachinary::Engine => "/attachinary"

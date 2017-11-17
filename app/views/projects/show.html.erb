@@ -1,17 +1,44 @@
-<div class="text-center">
-  <h1> <%= @project.title %> </h1>
-  <p> <%= @project.description %> </p>
-  <p> budget: <%= @project.projected_budget %></p>
-  <p> address: <%= @project.address %> </p>
-  <p><strong>Timespan:</strong>
-    <p>your project's slated to begin <%= @project.start_date %> and wrap up <%= @project.end_date %></p>
-<!--   <p><%= @project.status %></p>
- -->
-</div>
 
-<div class="text-center">
-  <%= link_to "assign task(s)", edit_project_path(@project), class:'btn btn-primary' %>
-  <p> wanna make tweaks or even scrap it and start over? </p>
-  <%= link_to "tweak it", edit_project_path(@project), class:'btn btn-primary' %> ||
-  <%= link_to "scrap it", @project, class:'btn btn-primary', method: :delete %>
+<div class="container">
+
+  <div class="section">
+    <h1><%= @project.title %></h1>
+    <p><%= @project.description %></p>
+    <p><%= @project.projected_budget %></p>
+    <p><%= @project.address %></p>
+    <p><%= @project.start_date %></p>
+    <p><%= @project.end_date %></p>
+    <p><%= @project.status %></p>
+  </div>
+  <div class="section">
+    <h2>Tasks  <%= link_to "Add a new task", new_project_task_path(@project) %></h2>
+
+    <% @project.tasks.each do |task| %>
+      <ul class="list-inline">
+        <li><%= task.specialty %></li>
+        <li><%= task.priority %></li>
+        <li><%= task.title %></li>
+        <li><%= task.description %></li>
+        <li><%= task.budget %> </li>
+        <li><%= task.status %></li>
+        <li><%= task.start_date %> </li>
+        <li><%= task.end_date %></li>
+      </ul>
+
+      <%= link_to '', project_task_path(task.project, task),  class:'btn btn-primary %>
+      <p> wanna make tweaks or even scrap it and start over? </p>
+      <%= link_to 'Edit', edit_project_task_path(task.project, task),  class:'btn btn-primary %>
+      <%= link_to "Delete task", project_task_path(task.project, task),  class:'btn btn-primary,
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </div>
 </div>
+<!-- <a href="#" class="btn-treehouse">message my team</a> -->
+
+
+<!-- <h2> Location of the project (Geocoding?) </h2>
+
+<h2> (Maybe on to the right side) Location of the project (Geocoding?) </h2>
+
+<p>a button could be handy if we <%= link_to "a handy button", class: "btn-treehouse" %> want to send a message to everyone involved in the job</p> -->
