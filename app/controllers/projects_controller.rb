@@ -1,5 +1,8 @@
 class ProjectsController < ApplicationController
+
+  before_action :set_task_project, only: [:show]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+
   skip_before_action :authenticate_user!, only: :new
 
 
@@ -61,9 +64,12 @@ class ProjectsController < ApplicationController
 
   private
 
-   def set_project
-    @project = Project.find(params[:id])
+  def set_task_project
+    @task = Task.find(params[:id])
+  end
 
+  def set_project
+    @project = Project.find(params[:id || :project_id])
   end
 
   def project_params

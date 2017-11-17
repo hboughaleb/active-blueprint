@@ -1,3 +1,4 @@
+
 <%= simple_form_for ([@project] ), html: { class: "form-group"} do |f| %>
   <% if @project.errors.any? %>
     <div id=“error_explanation”>
@@ -9,8 +10,8 @@
     </div>
   <% end %>
   <div class="form-inputs">
-    <%= f.input :title, input_html: { placeholder: "Give Your Project a Name", class: 'form-control' } %>
-    <%= f.input :address, input_html: { placeholder: "Project Adress", class: 'form-control' } %>
+    <%= f.input :title, input_html: { placeholder: "what name would you give your project?", class: 'form-control' } %>
+    <%= f.input :address, input_html: { placeholder: "where's it taking place?", class: 'form-control' } %>
     <%= f.input :description, input_html: { placeholder: "be specific...", class: 'form-control' } %>
     <%= f.input :projected_budget, input_html: { placeholder: "", class: 'form-control' } %>
     <%= f.input :status, collection: [ "Stand by", "Pending Ok", "Pending Blocked", "Closed", "Adandonned", "Completed"], input_html: {  class: 'form-control' } %>
@@ -25,6 +26,4 @@
     <%= f.submit class: "btn btn-success" %>
   </div>
 <% end %>
-
-
 

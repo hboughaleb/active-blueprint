@@ -1,7 +1,8 @@
 class User < ApplicationRecord
 
   has_many :projects
-  #has_many :projects, through: :tasks, as: "projects_as_contributor"
+  # has_many :projects, through: :tasks, as: "projects_as_contributor"
+  has_many :projects_as_contributor, through: :tasks, source: :project
   has_many :tasks
 
   # Include default devise modules. Others available are:
@@ -21,9 +22,9 @@ class User < ApplicationRecord
   # def is_ready
   # end
 
-  def projects_as_contributor
-    return Project.joins(:tasks).where("tasks.user_id = ?", self.id)
-  end
+  # def projects_as_contributor
+  #   return Project.joins(:tasks).where("tasks.user_id = ?", self.id)
+  # end
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)

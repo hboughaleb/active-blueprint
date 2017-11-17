@@ -1,6 +1,7 @@
-<div class="container">
+<div class="main-container">
 
   <% @tasks.each do |task| %>
+    <%= link_to task.project.title, project_path(task.project) %>
     <%= task.specialty %> | <%= task.priority %> | <%= task.title %> | <%= task.description %> | <%= task.budget %> | <%= task.status %> | <%= task.start_date %> | <%= task.end_date %>
     <%= link_to 'Check', project_task_path(task.project, task) %>
     <%= link_to 'Edit', edit_project_task_path(task.project, task) %>
