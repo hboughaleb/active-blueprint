@@ -23,11 +23,11 @@
     </div>
   </div>
   <div class="section">
-    <h2>Tasks  <%= link_to "Add a new task", new_project_task_path(@project) %></h2>
+    <h2>Tasks  <%= link_to "Add a new specialty", new_project_specialty_path(@project) %></h2>
 
     <% @project.tasks.each do |task| %>
       <ul class="list-inline">
-        <li><%= task.specialty %></li>
+        <li><%# task.specialty %></li>
         <li><%= task.priority %></li>
         <li><%= task.title %></li>
         <li><%= task.description %></li>
@@ -44,6 +44,14 @@
         data: { confirm: "Are you sure?" } %>
     <% end %>
   </div>
+  <div class="gantt-container" style="overflow: scroll;">
+    <svg id="gantt"></svg>
+
+    <%= form_tag project_specialty_path(@project), method: :patch, remote: true, id: "hidden_gantt_form" do %>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :tasks, "", id: "gnatt_tasks_input"  %>
+    <% end %>
+  </div>
 </div>
 <!-- <a href="#" class="btn-treehouse">message my team</a> -->
 
@@ -53,3 +61,9 @@
 <h2> (Maybe on to the right side) Location of the project (Geocoding?) </h2>
 
 <p>a button could be handy if we <%= link_to "a handy button", class: "btn-treehouse" %> want to send a message to everyone involved in the job</p> -->
+
+<%= content_for(:after_js) do %>
+  <script>
+  var railsGantt = new RailsGantt("#gantt", <%= raw JSON.generate(@specialties) %>);
+</script>
+<% end %>
