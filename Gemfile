@@ -5,7 +5,7 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
-gem 'rails', '5.0.6'
+gem 'rails', '5.1.4'
 gem 'redis'
 
 gem 'autoprefixer-rails'
@@ -22,7 +22,7 @@ gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin-oauth2', git: 'https://github.com/Devato/omniauth-linkedin-oauth2.git'
-gem 'simple_form'
+gem 'gantt', git: 'git://github.com/Martin-Alexander/gantt.git'
 
 
 group :development, :test do
