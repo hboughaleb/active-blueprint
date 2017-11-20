@@ -23,26 +23,8 @@
     </div>
   </div>
   <div class="section">
-    <h2>Tasks  <%= link_to "Add a new specialty", new_project_specialty_path(@project) %></h2>
+    <h2>Specialties  <%= link_to "Add a new specialty", new_project_specialty_path(@project) %></h2>
 
-    <% @project.tasks.each do |task| %>
-      <ul class="list-inline">
-        <li><%# task.specialty %></li>
-        <li><%= task.priority %></li>
-        <li><%= task.title %></li>
-        <li><%= task.description %></li>
-        <li><%= task.budget %> </li>
-        <li><%= task.status %></li>
-        <li><%= task.start_date %> </li>
-        <li><%= task.end_date %></li>
-      </ul>
-
-      <%= link_to 'Check', project_task_path(task.project, task),  class:'btn btn-primary' %>
-      <%= link_to 'Edit', edit_project_task_path(task.project, task),  class:'btn btn-primary' %>
-      <%= link_to "Delete task", project_task_path(task.project, task),  class:'btn btn-primary',
-        method: :delete,
-        data: { confirm: "Are you sure?" } %>
-    <% end %>
   </div>
   <div class="gantt-container" style="overflow: scroll;">
     <svg id="gantt"></svg>
