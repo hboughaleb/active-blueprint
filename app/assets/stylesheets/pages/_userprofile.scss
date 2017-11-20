@@ -1,217 +1,93 @@
-.page-header {
-    height: 100vh;
-    max-height: 1050px;
-    padding: 0;
-    color: #FFFFFF;
-    position: relative;
-    background-position: center center;
-    background-size: cover;
+body {
+  margin: 0;
+  font-family: Open-sans, sans-serif;
+}
+h1, h2, h3 {
+  font-family: Raleway, Helvetica, sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.text-center {
+  text-align: center;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.page-header .page-header-image {
-    position: absolute;
-    background-size: cover;
-    background-position: center center;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+.tabs {
+  background: #53443F;
+  display: flex;
+  padding: 10px 10px 0 10px
+}
+.tabs a {
+  color: white;
+}
+.tabs a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+}
+.tabs h3 {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 0;
+}
+.tabs p {
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+.tab {
+  background: #756A66;
+  flex: 0 0 25%;
+  text-align: center;
+  padding: 15px 0;
+}
+.tab:first-child {
+  border-radius: 10px 0 0 0;
+}
+.tab:last-child {
+  border-radius: 0 10px 0 0;
+}
+.tab.active {
+  background: white;
+  color: black;
 }
 
-.page-header footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+.avatar {
+  width: 30px;
+  border-radius: 50%;
+}
+.avatar-bordered {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
+.avatar-large {
+  width: 50px;
 }
 
-.page-header .container {
-    height: 100%;
-    z-index: 1;
-    text-align: center;
-    position: relative;
+.profile-header-wrapper {
+  background: #53443F;
 }
-
-.page-header .container>.content-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
-    padding: 0 15px;
-    color: #FFFFFF;
-    width: 100%;
-    max-width: 880px;
+.profile-header-container img {
+  width: 100px;
+  border-radius: 50%;
 }
-
-.page-header .category,
-.page-header .description {
-    color: rgba(255, 255, 255, 0.5);
+.profile-header-container h1 {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: -1px;
 }
-
-.page-header.page-header-small {
-    height: 60vh;
-    max-height: 440px;
+.profile-header-container h2 {
+  color: white;
+  opacity: 0.4;
+  font-size: 18px;
+  font-weight: lighter;
+  margin-bottom: 0;
+  letter-spacing: -1px;
 }
-
-.page-header:after,
-.page-header:before {
-    position: absolute;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    left: 0;
-    top: 0;
-    content: "";
-}
-
-.page-header:before {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.page-header[filter-color="orange"] {
-    background: rgba(44, 44, 44, 0.2);
-    /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
-    /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
-    /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
-    /* For Firefox 3.6 to 15 */
-    background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
-    /* Standard syntax */
-}
-
-.page-header .container {
-    z-index: 2;
-}
-
-.profile-page .page-header {
-    min-height: 550px;
-}
-
-.profile-page .profile-container {
-    color: #FFFFFF;
-}
-
-.profile-page .photo-container {
-    width: 123px;
-    height: 123px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto;
-    box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
-}
-
-.profile-page .title {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.profile-page .description,
-.profile-page .category {
-    text-align: center;
-}
-
-.profile-page h5.description {
-    max-width: 700px;
-    margin: 20px auto 75px;
-}
-
-.profile-page .nav-align-center {
-    margin-top: 30px;
-}
-
-.profile-page .content {
-    max-width: 450px;
-    margin: 0 auto;
-}
-
-.profile-page .content .social-description {
-    display: inline-block;
-    max-width: 150px;
-    width: 145px;
-    text-align: center;
-    margin: 15px 0 0px;
-}
-
-.profile-page .content .social-description h2 {
-    margin-bottom: 15px;
-}
-
-.profile-page .button-container {
-    text-align: center;
-    margin-top: -106px;
-}
-
-.profile-page .collections img {
-    margin-bottom: 30px;
-}
-
-.profile-page .gallery {
-    margin-top: 45px;
-    padding-bottom: 50px;
-}
-
-.section-full-page:after,
-.section-full-page:before {
-    display: block;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 2;
-}
-
-.section-full-page:before {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.section-full-page[filter-color="purple"]:after,
-.section-full-page[filter-color="primary"]:after {
-    background: rgba(227, 227, 227, 0.26);
-    /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(90deg, rgba(227, 227, 227, 0.26), rgba(249, 99, 50, 0.95));
-    /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(90deg, rgba(227, 227, 227, 0.26), rgba(249, 99, 50, 0.95));
-    /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(90deg, rgba(227, 227, 227, 0.26), rgba(249, 99, 50, 0.95));
-    /* For Firefox 3.6 to 15 */
-    background: linear-gradient(0deg, rgba(227, 227, 227, 0.26), rgba(249, 99, 50, 0.95));
-    /* Standard syntax */
-}
-
-.section-full-page[data-image]:after {
-    opacity: .5;
-}
-
-.section-full-page>.content,
-.section-full-page>.footer {
-    position: relative;
-    z-index: 4;
-}
-
-.section-full-page>.content {
-    min-height: calc(100vh - 80px);
-}
-
-.section-full-page .full-page-background {
-    position: absolute;
-    z-index: 1;
-    height: 100%;
-    width: 100%;
-    display: block;
-    top: 0;
-    left: 0;
-    background-size: cover;
-    background-position: center center;
-}
-
-.section-full-page .footer nav>ul a:not(.btn),
-.section-full-page .footer,
-.section-full-page .footer .copyright a {
-    color: #FFFFFF;
+.profile-header-infos {
+  padding: 20px 0;
 }
