@@ -21,11 +21,16 @@ class UsersController < ApplicationController
   #   end
   # end
 
-  # def edit          # GET /users/:id/edit
-  # end
+  def edit          # GET /users/:id/edit
+  end
 
-  # def update        # PATCH /users/:id
-  # end
+  def update        # PATCH /users/:id
+    if @user.update_attribute(user_params)
+      redirect_to current_user_path
+    else
+      render 'edit'
+    end
+  end
 
   # def destroy       # DELETE /users/:id
   # end

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>active blueprint</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -16,6 +18,6 @@
     <%= render "shared/footer" %>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
-    <%= render "shared/footer" %>
+    <%= yield(:after_js) %>
   </body>
 </html>
