@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   # before_action :set_task_project, only: [:show]
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :destroy]
 
   skip_before_action :authenticate_user!, only: :new
 
@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
     if current_user != @project.user
       redirect_to root_path
     end
+    @specialties = Specialty.where(project: @project).as_gantt_tasks
   end
 
   def new           # GET /projects/new
@@ -26,7 +27,7 @@ class ProjectsController < ApplicationController
     @project.user = current_user
     if @project.save!
       generate = params[:generate][:type]
-      if generate != ""
+      if generate != "" && false
         if generate == "Building a Villa"
           Task.create!(specialty: "Founder", project: @project, title: "Build a foundation", budget: "1000000", status: "Stand by", start_date: Date.today, end_date: Date.today+1)
           Task.create!(specialty: "Roofer", project: @project, title: "Put a roof on it", budget: "10000", status: "Stand by", start_date: Date.today, end_date: Date.today+3)
