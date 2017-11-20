@@ -1,120 +1,94 @@
-<body class="profile-page sidebar-collapse">
-    <div class="wrapper">
-        <div class="page-header page-header-small" filter-color="orange">
-            <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/images/user-show.jpg');">
-            </div>
-            <div class="container">
-                <div class="content-center">
-                    <div class="photo-container">
-                        <img src="current_user.picture_url" alt="assets/images/ryan.jpg">
-                    </div>
-                    <h3 class="title"> user first, user last </h3>
-                    <p class="category"> perhaps put the user's job title and company here? </p>
-                    <div class="content">
-                        <div class="social-description">
-                            <h2> total number of current user's projects </h2>
-                            <p> projects currently running </p>
-                        </div>
-                        <div class="social-description">
-                            <h2> total number of contributors with whom the user is working </h2>
-                            <p> ongoing collaborations </p>
-                        </div>
-                        <div class="social-description">
-                            <h2> 48 </h2>
-                            <p> reviews </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="button-container">
-                    <a href="#button" class="btn btn-primary btn-round btn-lg">send a message</a>
-                </div>
-                <h3 class="title">about me</h3>
-                <h5 class="description">Iiiiiiiin West Philadelphia born and raised, on the playground was where I spent most of my days. Chillin out, maxin, relaxin, all cool and all shootin some b-ball outside of the school.</h5>
-                <div class="row">
-                    <div class="col-md-6 ml-auto mr-auto">
-                        <h4 class="title text-center">my current projects</h4>
-                        <div class="nav-align-center">
-                            <ul class="nav nav-pills nav-pills-primary" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#profile" role="tablist">
-                                        <i class="now-ui-icons design_image"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#home" role="tablist">
-                                        <i class="now-ui-icons location_world"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#messages" role="tablist">
-                                        <i class="now-ui-icons sport_user-run"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Tab panes -->
-                    <div class="tab-content gallery">
-                        <div class="tab-pane active" id="home" role="tabpanel">
-                            <div class="col-md-10 ml-auto mr-auto">
-                                <div class="row collections">
-                                    <div class="cards-container col-xs-12 col-sm-9">
-                                        <% @projects.each do |project| %>
-                                          <%= render "shared/card", project: project %>
-                                            <% end %>
-                                          </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="profile" role="tabpanel">
-                            <div class="col-md-10 ml-auto mr-auto">
-                                <div class="row collections">
-                                    <div class="col-md-6">
-                                        <img src="../assets/img/bg6.jpg" class="img-raised">
-                                        <img src="../assets/img/bg11.jpg" alt="" class="img-raised">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <img src="../assets/img/bg7.jpg" alt="" class="img-raised">
-                                        <img src="../assets/img/bg8.jpg" alt="" class="img-raised">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="messages" role="tabpanel">
-                            <div class="col-md-10 ml-auto mr-auto">
-                                <div class="row collections">
-                                    <div class="col-md-6">
-                                        <img src="../assets/img/bg3.jpg" alt="" class="img-raised">
-                                        <img src="../assets/img/bg8.jpg" alt="" class="img-raised">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <img src="../assets/img/bg7.jpg" alt="" class="img-raised">
-                                        <img src="../assets/img/bg6.jpg" class="img-raised">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-<!--   Core JS Files   -->
-<script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
-<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
-<script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-<script src="../assets/js/plugins/bootstrap-switch.js"></script>
-<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-<script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-<script src="../assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
+    <div class="container">
+      <div class="card text-center">
+        <img src="../shared/images/boris.jpg" alt="Boris Paillard" id="img-profile" class="img-circle">
+        <h1>Boris Paillard</h1>
+        <h2>CEO @Le Wagon</h2>
 
+        <p>
+          After 3 years in financial markets, I got bored and launched Le Wagon. Our mission: <strong>bring technical skills to creative people</strong>.
+        </p>
+
+        <a href="https://lewagon.com" class="btn-red">See for yourself</a>
+      </div>
+
+      <div class="card text-center">
+        <ul class="list-inline">
+          <li class="text-center">
+            <a href="https://www.facebook.com/boris.paillard">
+              <i class="fa fa-facebook"></i> <br>Facebook
+            </a>
+          </li>
+          <li class="text-center">
+            <a href="https://www.linkedin.com/in/boris-paillard-86722670">
+              <i class="fa fa-linkedin"></i> <br>Linkedin
+            </a>
+          </li>
+          <li class="text-center">
+            <a href="https://twitter.com/bpapillard">
+              <i class="fa fa-twitter"></i> <br>Twitter
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card text-center">
+        <h2>My Favorite movies</h2>
+        <table id="movies">
+          <tbody>
+            <tr>
+              <td>
+                <img src="../shared/images/space-odyssey.jpg" alt="space odyssey">
+              </td>
+              <td>
+                <h3>2001 - Space Odyssey</h3>
+                <p>Humanity finds a mysterious, obviously artificial, object buried beneath the Lunar surface and, with the intelligent computer H.A.L. 9000, sets off on a quest.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="../shared/images/monsieur-hulot.jpg" alt="monsieur hulot">
+              </td>
+              <td>
+                <h3>Monsieur Hulot</h3>
+                <p>Monsieur Hulot comes to a beachside hotel for a vacation, where he accidentally (but good-naturedly) causes havoc.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="../shared/images/alien.jpg" alt="alien">
+              </td>
+              <td>
+                <h3>Alien</h3>
+                <p>The commercial vessel Nostromo receives a distress call from an unexplored planet. After searching for survivors, the crew heads home only to realize that a deadly bioform has joined them.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card text-center">
+        <h2>About this page</h2>
+        This page has been coded during the <a href="https://lewagon.org/program" target="_blank">FullStack program @LeWagon</a>. That was probably the best experience of my entire life.
+        <ul class="list-inline">
+         <li>
+           <a href="#">
+             <i class="fa fa-heart"></i>
+           </a>
+         </li>
+         <li>
+           <a href="#">
+             <i class="fa fa-share"></i>
+           </a>
+         </li>
+         <li>
+           <a href="#">
+             <i class="fa fa-star"></i>
+           </a>
+         </li>
+        </ul>
+      </div>
+    </div>
+
+  </body>
 </html>
+
