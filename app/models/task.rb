@@ -1,9 +1,11 @@
 class Task < ApplicationRecord
 
+
   include Gantt::GanttInstanceMethods
   extend Gantt::GanttClassMethods
 
   belongs_to :project
+
   belongs_to :user
   belongs_to :specialty
 
