@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 
     resources :users, only: [ :show ]
 
-    resources :projects, only: [ :create, :new, :show, :edit, :update, :index, :destroy ] do
-    resources :specialties, only: [ :update, :new, :create, :destroy ]
-      resources :tasks
+    resources :projects do
+      resources :specialties do
+        resources :tasks
+      end
     end
     get "/all_my_tasks", to: "tasks#full_index", as: "all_tasks"
   root to: 'pages#home'

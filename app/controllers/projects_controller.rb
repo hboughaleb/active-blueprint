@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
 
-  # before_action :set_task_project, only: [:show]
-  before_action :set_project, only: [:show, :edit, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   skip_before_action :authenticate_user!, only: :new
 
@@ -69,10 +68,10 @@ class ProjectsController < ApplicationController
   # end
 
   def set_project
-    @project = Project.find(params[:id || :project_id])
+    @project = Project.find(params[:id || :specialty_id])
   end
 
   def project_params
-    params.require(:project).permit(:title, :description, :start_date, :end_date, :projected_budget, :address, :status)
+    params.require(:project).permit(:title, :description, :start_date, :end_date, :projected_budget, :address, :status, :id)
   end
 end
