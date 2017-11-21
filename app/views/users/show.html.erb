@@ -1,7 +1,7 @@
-    <div class="profile-header-wrapper">
+    <div class="profile-header-wrapper" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'profile-show.png' %>');">
       <div class="container profile-header-container text-center">
         <div class="profile-header-infos">
-          <img src="images/papillard.jpeg" alt="">
+          <%= @user.photo ? cl_image_tag(@user.photo.path) : image_tag(@user.facebook_picture_url) %>
           <h1> user's name </h1>
           <h2> user's title? </h2>
         </div>

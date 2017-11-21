@@ -1,6 +1,6 @@
 class SpecialtiesController < ApplicationController
   before_action :set_project, only: [:create, :new, :show, :edit, :destroy]
-  before_action :set_specialty, only: [:show, :update]
+  before_action :set_specialty, only: [:show]
   def new
     @specialty = Specialty.new
   end
@@ -17,8 +17,9 @@ class SpecialtiesController < ApplicationController
   end
 
   def update
-    current_user == Specialty.find(params[:id]).project.user
-    Specialty.update_from_params(params)
+    if current_user == Project.find(params[:project_id]).user
+      Specialty.update_from_params(params)
+    end
   end
 
   def edit
@@ -43,7 +44,7 @@ class SpecialtiesController < ApplicationController
   private
 
   def set_specialty
-    @specialty = Specialty.find(params[:id || :specialty_id])
+    @specialty = Specialty.find(params[:id ])
   end
 
   def set_project

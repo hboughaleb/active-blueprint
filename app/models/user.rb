@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 
+  has_attachment :photo
   has_many :projects
   # has_many :projects, through: :tasks, as: "projects_as_contributor"
   has_many :projects_as_contributor, through: :tasks, source: :project

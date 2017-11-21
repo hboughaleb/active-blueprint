@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Martin-Alexander/gantt.git
-  revision: d14dd5fe6900107ac18bb6d0d3a8d2c8fd74159a
+  revision: be4258c61079cf82c256cad4d5886fd3fdec1ca0
   specs:
     gantt (0.1.0)
       rails (~> 5.1.4)
@@ -171,7 +171,7 @@ GEM
       pry (>= 0.10.4)
     puma (3.10.0)
     rack (2.0.3)
-    rack-test (0.8.0)
+    rack-test (0.8.2)
       rack (>= 1.0, < 3)
     rails (5.1.4)
       actioncable (= 5.1.4)
