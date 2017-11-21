@@ -1,26 +1,26 @@
-    <div class="profile-header-wrapper" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'profile-show.png' %>');">
+    <div class="profile-header-wrapper" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'project-show.png' %>');">
       <div class="container profile-header-container text-center">
         <div class="profile-header-infos">
           <%= @user.photo ? cl_image_tag(@user.photo.path) : image_tag(@user.facebook_picture_url) %>
-          <h1> user's name </h1>
-          <h2> user's title? </h2>
+          <h1><%=@user.first_name%> <%=@user.last_name%></h1>
+          <h2><%=@user.email%></h2>
         </div>
         <div class="tabs">
           <a class="tab active" href="#">
-            <h3>8</h3>
-            <p>current projects</p>
+            <h3><%= @user.projects.length %></h3>
+            <p> projects </p>
           </a>
           <a class="tab" href="#">
             <h3>27</h3>
-            <p>working collaborators</p>
+            <p> contributors </p>
           </a>
           <a class="tab" href="#">
             <h3>54</h3>
-            <p>reviews</p>
+            <p> reviews </p>
           </a>
           <a class="tab" href="#">
             <h3>13</h3>
-            <p>something else</p>
+            <p> something else </p>
           </a>
         </div>
       </div>
@@ -30,12 +30,12 @@
       <div class="product">
         <div class='product-upvote'>
           <div class="product-arrow"></div>
-          <div class='product-count'>95</div>
+          <div class='product-count'></div>
         </div>
-        <img src="shared/card" alt="" class="product-image">
+        <img src="images/kudoz.jpg" alt="" class="product-image">
         <div class='product-body'>
-          <h3> title of project </h3>
-          <p> description of project </p>
+          <h3> title of user's project </h3>
+          <p> description of said project </p>
         </div>
         <ul class="list-inline product-controls">
           <li><a href=""><i class="fa fa-heart"></i></a></li>
@@ -46,12 +46,12 @@
       <div class="product">
         <div class='product-upvote'>
           <div class="product-arrow"></div>
-          <div class='product-count'>67</div>
+          <div class='product-count'></div>
         </div>
-        <img src="shared/card" alt="" class="product-image">
+        <img src="images/uslide.jpg" alt="" class="product-image">
         <div class='product-body'>
-          <h3> title of project </h3>
-          <p> description of project </p>
+          <h3> title of user's project </h3>
+          <p> description of said project </p>
         </div>
         <ul class="list-inline product-controls">
           <li><a href=""><i class="fa fa-heart"></i></a></li>
@@ -62,12 +62,12 @@
       <div class="product">
         <div class='product-upvote'>
           <div class="product-arrow"></div>
-          <div class='product-count'>55</div>
+          <div class='product-count'></div>
         </div>
-        <img src="shared/card" alt="" class="product-image">
+        <img src="images/roadstr.jpg" alt="" class="product-image">
         <div class='product-body'>
-          <h3> title of project </h3>
-          <p> description of project </p>
+          <h3> title of user's project </h3>
+          <p> description of said project </p>
         </div>
         <ul class="list-inline product-controls">
           <li><a href=""><i class="fa fa-heart"></i></a></li>

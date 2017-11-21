@@ -1,7 +1,7 @@
 /* Main navbar */
 .navbar-wagon {
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: transparent;
+  // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  background-color: transparent !important;
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
@@ -10,7 +10,7 @@
   justify-content: space-between;
   font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   a {
-  color: white !important;
+  color: black !important;
   text-decoration: none !important;
   }
 }
