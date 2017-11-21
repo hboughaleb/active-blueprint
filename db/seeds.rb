@@ -1,3 +1,7 @@
+Task.destroy_all
+Specialty.destroy_all
+Project.destroy_all
+User.destroy_all
 
 user1 = User.create({
   roles: "manager",
@@ -76,7 +80,7 @@ specialty2 = Specialty.create({
   name: "Electrician",
   start: "2018-02-28".to_date,
   finish: "2018-04-01".to_date,
-  progress: 0,
+  progress: 10,
   dependencies: "",
   custom_class: "none",
   project: project1
@@ -96,7 +100,7 @@ specialty4 = Specialty.create({
   name: "Mason",
   start: "2018-07-14".to_date,
   finish: "2018-09-14".to_date,
-  progress: 0,
+  progress: 10,
   dependencies: "",
   custom_class: "none",
   project: project1
@@ -106,7 +110,7 @@ specialty4 = Specialty.create({
   name: "Roofer",
   start: "2018-9-15".to_date,
   finish: "2018-9-17".to_date,
-  progress: 0,
+  progress: 10,
   dependencies: "",
   custom_class: "none",
   project: project1
@@ -121,7 +125,7 @@ task1_1 = Task.new({
   budget: 1000,
   zone: "Kitchen",
   priority: 1,
-  user: user2,
+  user_id: user2.id,
   specialty: specialty1,
   dependencies: "",
   progress: 100,
@@ -139,7 +143,7 @@ task2 = Task.create({
   priority: 2,
   user: user3,
   specialty: specialty1,
-  dependencies: task1_1,
+  dependencies: task1_1.id.to_s,
   progress: 90,
   custom_class: ""
   })
@@ -155,7 +159,7 @@ task3 = Task.create({
   user: user3,
   specialty: specialty3,
   dependencies: "",
-  progress: 100,
+  progress: 90,
   custom_class: "",
   })
 task4 = Task.create({
@@ -169,8 +173,8 @@ task4 = Task.create({
   priority: 3,
   user: user2,
   specialty: specialty4,
-  dependencies: task3,
-  progress: 0,
+  dependencies: task3.id.to_s,
+  progress: 10,
   custom_class: ""
   })
 task5 = Task.create({
@@ -184,8 +188,8 @@ task5 = Task.create({
   priority: 4,
   user: user1,
   specialty: specialty5,
-  dependencies: task4,
-  progress: 0,
+  dependencies: task4.id.to_s,
+  progress: 10,
   custom_class: ""
   })
 

@@ -1,40 +1,43 @@
-
-<div class="container">
-
-  <div class="section">
-    <h1><%= @project.title %></h1>
-    <p><%= @project.description %></p>
-    <p><%= @project.projected_budget %></p>
-    <p><%= @project.address %></p>
-    <p><%= @project.start_date %></p>
-    <p><%= @project.end_date %></p>
-    <p><%= @project.status %></p>
-
-    <div>
-      <%= link_to "Edit Project", edit_project_path(@project), class:'button' %>
+<div class="full-wrapper ">
+  <div class="row">
+    <div class="col-xs-3">
+      <div class="sidebar-wrapper">
+        <div class="sidebar-nav">
+            <%= render "shared/navcard" %>
+        </div>
+      </div>
     </div>
-
-    <dir>
-      <%= link_to "Delete Project", @project, class:'button', method: :delete %>
-    </dir>
-
-    <div>
-      <a href="#" class="btn-treehouse">message my team</a>
+    <div class="col-xs-9">
+      <div class="page-content-wrapper">
+        <div class="page-content">
+          <div class="container">
+            <div class="section">
+              <h3><%= @project.title %> <%= link_to "", edit_project_path(@project), class:"fa fa-pencil" %> <%= link_to "", @project, class:'fa fa-trash', method: :delete %></h3>
+              <p><%= @project.description %></p>
+              <p><%= @project.projected_budget %></p>
+              <p><%= @project.address %></p>
+              <p><%= @project.start_date %></p>
+              <p><%= @project.end_date %></p>
+              <p><%= @project.status %></p>
+              <div><a href="#" class="btn-treehouse">message my team</a></div>
+            </div>
+            <h2>Specialties  <%= link_to "Add a new specialty", new_project_specialty_path(@project) %></h2>
+            <div class="gantt-container" style="overflow: scroll;">
+              <svg id="gantt"></svg>
+              <%= form_tag project_path(@project), method: :patch, remote: true, id: "hidden_gantt_form" do %>
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <%= hidden_field_tag :tasks, "", id: "gnatt_tasks_input"  %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="section">
-    <h2>Specialties  <%= link_to "Add a new specialty", new_project_specialty_path(@project) %></h2>
-
-  </div>
-  <div class="gantt-container" style="overflow: scroll;">
-    <svg id="gantt"></svg>
-
-    <%= form_tag project_specialty_path(@project), method: :patch, remote: true, id: "hidden_gantt_form" do %>
-      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <%= hidden_field_tag :tasks, "", id: "gnatt_tasks_input"  %>
-    <% end %>
   </div>
 </div>
+<!-- <div class="container">
+
+</div> -->
 <!-- <a href="#" class="btn-treehouse">message my team</a> -->
 
 
@@ -47,5 +50,6 @@
 <%= content_for(:after_js) do %>
   <script>
   var railsGantt = new RailsGantt("#gantt", <%= raw JSON.generate(@specialties) %>);
+  railsGantt.gantt.change_view_mode('Month')
 </script>
 <% end %>

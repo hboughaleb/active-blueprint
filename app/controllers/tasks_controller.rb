@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_specialty, only: [:create, :new, :show, :edit, :destroy]
   before_action :set_project, except: [ :full_index]
   def index         # GET /tasks
     @tasks = Task.all
@@ -20,29 +21,31 @@ class TasksController < ApplicationController
   def create        # POST /tasks
     @task = Task.new(task_params)
     # @task.user = current_user
-    @task.project = @project
+    @task.specialty = @specialty
     if @task.save!
-      redirect_to project_tasks_path(current_user)
+      redirect_to project_specialty_tasks_path(current_user)
     else
       render :new
     end
   end
 
   def edit          # GET /tasks/:id/edit
-
-  end
-
-  def update        # PATCH /tasks/:id
     if @task.update(task_params)
-      redirect_to project_task_path(@project, @task)
+      redirect_to project_specialty_task_path(@specialty, @task)
     else
       render :edit
     end
   end
 
+  def update        # PATCH /tasks/:id
+    if current_user == Task.find(params[:id]).project.specialty.user
+      Task.update_from_params(params)
+    end
+  end
+
   def destroy       # DELETE /tasks/:id
     @task.destroy
-    redirect_to project_path(@project)
+    redirect_to project_specialty_path(@specialty)
   end
 
   private
@@ -51,12 +54,16 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+  def set_specialty
+    @specialty = Specialty.find(params[:specialty_id])
+  end
+
   def set_project
     @project = Project.find(params[:project_id])
   end
 
   def task_params
-    params.require(:task).permit(:title, :description, :budget, :priority, :start_date, :end_date, :specialty, :status, :user_id)
+    params.require(:task).permit(:name, :description, :budget, :priority, :start, :finish, :specialty, :status, :user_id, :specialty_id, :project_id)
   end
 
 end
