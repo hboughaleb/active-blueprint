@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-
+  # before_action :set_specialty, only: [:show]
   skip_before_action :authenticate_user!, only: :new
 
 
@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
     if current_user != @project.user
       redirect_to root_path
     end
-    @specialties = Specialty.where(project: @project).as_gantt_tasks
+    @specialties = Specialty.where(project: @project).order(:id).as_gantt_tasks
     @specialtiez = Specialty.where(project: @project)
   end
 
@@ -70,6 +70,10 @@ class ProjectsController < ApplicationController
 
   def set_project
     @project = Project.find(params[:id || :specialty_id])
+  end
+
+  def set_specialty
+    @specialty = Specialty.find(params[:id || :specialty_id])
   end
 
   def project_params

@@ -1,4 +1,4 @@
-<%= simple_form_for ([@project, @task] ), html: { class: "form-group"} do |f| %>
+<%= simple_form_for ([@project, @specialty, @task] ), html: { class: "form-group"} do |f| %>
   <% if @task.errors.any? %>
     <div id=“error_explanation”>
       <ul>
@@ -11,12 +11,12 @@
   <div class="form-inputs">
     <%= f.input :specialty, input_html: { placeholder: "plumbing, roofing, painting...", class: 'form-control' } %>
     <%= f.input :priority, input_html: { placeholder: "1, 2 , 3", class: 'form-control' } %>
-    <%= f.input :title, input_html: { placeholder: " Name it !", class: 'form-control' } %>
+    <%= f.input :name, input_html: { placeholder: " Name it !", class: 'form-control' } %>
     <%= f.input :description, input_html: { placeholder: "be specific...", class: 'form-control' } %>
     <%= f.input :budget, input_html: { placeholder: "", class: 'form-control' } %>
     <%= f.input :status, collection: [ "Stand by", "Pending Ok", "Pending Blocked", "Closed", "Adandonned", "Completed"], input_html: {  class: 'form-control' } %>
-    <%= f.input :start_date, input_html: { placeholder: "", class: 'form-control' } %>
-    <%= f.input :end_date, input_html: { placeholder: "", class: 'form-control' } %>
+    <%= f.input :start, input_html: { placeholder: "", class: 'form-control' } %>
+    <%= f.input :finish, input_html: { placeholder: "", class: 'form-control' } %>
   </div>
 
   <div class="form-actions">
