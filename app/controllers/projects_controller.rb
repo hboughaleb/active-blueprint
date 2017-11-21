@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
       redirect_to root_path
     end
     @specialties = Specialty.where(project: @project).order(:id).as_gantt_tasks
-    @specialtiez = Specialty.where(project: @project)
+    @specialtiez = Specialty.where(project: @project).order(:id)
   end
 
   def new           # GET /projects/new
