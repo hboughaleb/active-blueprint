@@ -131,7 +131,7 @@ class Project < ApplicationRecord
             }
           }
         },
-        plumbing: {
+        plumber: {
           name: "Plumbing",
           start: 10,
           finish: 40,
