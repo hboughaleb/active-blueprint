@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
       redirect_to root_path
     end
     @specialties = Specialty.where(project: @project).as_gantt_tasks
+    @specialtiez = Specialty.where(project: @project)
   end
 
   def new           # GET /projects/new
