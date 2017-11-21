@@ -53,6 +53,13 @@ class ProjectsController < ApplicationController
         task_3 = Task.create!(specialty: specialty, description: "Phase 3 description", name: "Phase 3", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today + 20, finish: Date.today + 40, progress: 0, custom_class: "task-1-class", dependencies: "#{task_2.id}")
         task_4 = Task.create!(specialty: specialty, description: "Phase 4 description", name: "Phase 4", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today + 30, finish: Date.today + 50, progress: 0, custom_class: "task-1-class", dependencies: "#{task_3.id}")
 
+      elsif specialty == "electrician"
+        specialty_budget = ( projected_budget * 40 ) / 100
+        specialty = Specialty.create(name: specialty, start: project_start, finish: project_end, progress: 0, dependencies: '', custom_class: '#{specialty}-class')
+        task_1 = Task.create!(specialty: specialty, description: "Phase 1 description", name: "Phase 1", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today, finish: Date.today + 20, progress: 0, custom_class: "task-1-class")
+        task_2 = Task.create!(specialty: specialty, description: "Phase 2 description", name: "Phase 2", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today + 10, finish: Date.today + 30, progress: 0, custom_class: "task-1-class", dependencies: "#{task_1.id}")
+        task_3 = Task.create!(specialty: specialty, description: "Phase 3 description", name: "Phase 3", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today + 20, finish: Date.today + 40, progress: 0, custom_class: "task-1-class", dependencies: "#{task_2.id}")
+        task_4 = Task.create!(specialty: specialty, description: "Phase 4 description", name: "Phase 4", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today + 30, finish: Date.today + 50, progress: 0, custom_class: "task-1-class", dependencies: "#{task_3.id}")
       end
     end
 
