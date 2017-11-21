@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+  has_attachment :cover
+
   belongs_to :user
   has_many :specialties, dependent: :destroy
   has_many :tasks, through: :specialties
