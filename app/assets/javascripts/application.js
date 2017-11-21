@@ -6,3 +6,4 @@
 //= require attachinary
 //= require gantt
 //= require_tree .
+//= require bootstrap-datepicker
