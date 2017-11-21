@@ -1,9 +1,10 @@
-<div class="card">
-  <div class="card-category">Popular</div>
-  <div class="card-description">
-    <h3>Le Wagon Shanghai</h3>
-    <p>Very cool city, the best</p>
+<% @specialtiez.each do |s| %>
+  <div class="card">
+    <div class="card-description">
+      <p><%= link_to "#{s.name}" , project_specialty_path(@project) %></p>
+      <p><%= s.start.strftime("%Y-%m-%d") %> - <%= s.finish.strftime("%Y-%m-%d") %></p>
+    </div>
+    <img class="card-user" src="#">
+    <a class="card-link" href="#" ></a>
   </div>
-  <img class="card-user" src="#">
-  <a class="card-link" href="#" ></a>
-</div>
+<% end %>

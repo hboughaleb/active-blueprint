@@ -2,7 +2,9 @@
   padding-left: 50px;
   transition: all 0.4s ease 0s;
   display: flex;
-  align-items: top;
+  // align-items: top;
+  top: 70px;
+  position: relative;
 }
 
 .sidebar-wrapper {
@@ -22,6 +24,7 @@
 .page-content-wrapper {
   width: 100%;
   flex-grow: 3;
+  height: 2000px;
 }
 
 .sidebar-nav {
