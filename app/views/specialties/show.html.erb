@@ -5,8 +5,8 @@
     <h1><%= @specialty.name %></h1>
     <p><%= @specialty.dependencies %></p>
     <p><%= @specialty.custom_class %></p>
-    <p><%= @specialty.start %></p>
-    <p><%= @specialty.finish %></p>
+    <p><%= @specialty.start.strftime("%Y-%m-%d") %></p>
+    <p><%= @specialty.finish.strftime("%Y-%m-%d") %></p>
     <p><%= @specialty.progress %></p>
 
     <div>
@@ -22,13 +22,13 @@
     </div>
   </div>
   <div class="section">
-    <h2>Specialties  <%= link_to "Add a new specialty", new_project_specialty_task_path(@project, @specialty) %></h2>
+    <h2>Specialties  <%= link_to "Add a new task", new_project_specialty_task_path(@project, @specialty) %></h2>
 
   </div>
   <div class="gantt-container" style="overflow: scroll;">
     <svg id="gantt"></svg>
 
-    <%= form_tag project_specialty_path(@project, @specialty), method: :patch, remote: true, id: "hidden_gantt_form" do %>
+    <%= form_tag project_specialty_task_path(@project, @specialty, 1), method: :patch, remote: true, id: "hidden_gantt_form" do %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <%= hidden_field_tag :tasks, "", id: "gnatt_tasks_input"  %>
     <% end %>
