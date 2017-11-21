@@ -32,18 +32,23 @@
           <div class="product-arrow"></div>
           <div class='product-count'></div>
         </div>
-        <img src="images/kudoz.jpg" alt="" class="product-image">
+        <% @user.projects.each do |project| %>
+          <% if @project.cover ? %>
+            <% project_image = cl_image_tag @project.cover.path %>
+            <% else %>
+            <% project_image = "http://placehold.it/300x200" %>
         <div class='product-body'>
-          <h3> title of user's project </h3>
-          <p> description of said project </p>
+          <h3><%= @project.title %></h3>
+          <p><%= @project.description %></p>
         </div>
         <ul class="list-inline product-controls">
           <li><a href=""><i class="fa fa-heart"></i></a></li>
           <li><a href=""><i class="fa fa-share"></i></a></li>
           <li><a href=""><i class="fa fa-star"></i></a></li>
         </ul>
-      </div>
-      <div class="product">
+      <% end %>
+    </div>
+      <!-- <div class="product">
         <div class='product-upvote'>
           <div class="product-arrow"></div>
           <div class='product-count'></div>
@@ -74,5 +79,4 @@
           <li><a href=""><i class="fa fa-share"></i></a></li>
           <li><a href=""><i class="fa fa-star"></i></a></li>
         </ul>
-      </div>
-    </div>
+      </div> -->
