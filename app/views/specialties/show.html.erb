@@ -8,9 +8,12 @@
     <p><%= @specialty.start.strftime("%Y-%m-%d") %></p>
     <p><%= @specialty.finish.strftime("%Y-%m-%d") %></p>
     <p><%= @specialty.progress %></p>
+    <% @specialty.users.each do |u| %>
+      <p><%= u.username %></p>
+    <% end %>
 
     <div>
-      <%= link_to "Edit specialty", edit_project_specialty_path(@specialty), class:'button' %>
+      <%= link_to "Edit specialty", edit_project_specialty_path(@project, @specialty), class:'button' %>
     </div>
 
     <dir>
