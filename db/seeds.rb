@@ -63,7 +63,7 @@ project2 = Project.create({
   projected_budget: 70000,
   address: "200 Ile des Soeurs Verdun, QC",
   status: "Stand by",
-  user: user1
+  user: User.first
   })
 
 specialty1 = Specialty.create({

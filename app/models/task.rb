@@ -8,6 +8,8 @@ class Task < ApplicationRecord
 
   belongs_to :user
   belongs_to :specialty
+  has_many :documents
+
 
   validates :name, presence: true
   validates :budget, presence: true

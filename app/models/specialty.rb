@@ -4,7 +4,7 @@ class Specialty < ApplicationRecord
   extend Gantt::GanttClassMethods
 
   belongs_to :project
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
 
   has_many :users, through: :tasks
 
