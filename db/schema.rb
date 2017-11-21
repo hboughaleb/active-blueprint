@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20171121191924) do
     t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "budget"
     t.index ["project_id"], name: "index_specialties_on_project_id"
   end
 

@@ -1,11 +1,17 @@
-<div class="main-container">
+<div class="container">
 
   <% @tasks.each do |task| %>
-    <%= link_to task.project.title, project_path(task.project) %>
-    <%= task.specialty %> | <%= task.priority %> | <%= task.title %> | <%= task.description %> | <%= task.budget %> | <%= task.status %> | <%= task.start_date %> | <%= task.end_date %>
-    <%= link_to 'Check', project_task_path(task.project, task) %>
-    <%= link_to 'Edit', edit_project_task_path(task.project, task) %>
-    <%= link_to "Delete task", project_task_path(task.project, task),
+    <div><%= task.specialty.name %></div>
+    <div><%= task.priority %></div>
+    <div><%= task.name %></div>
+    <div><%= task.description %></div>
+    <div><%= task.budget %></div>
+    <div><%= task.status %></div>
+    <div><%= task.start %></div>
+    <div><%= task.finish %></div>
+    <%= link_to 'Check', project_specialty_task_path(task.specialty.project, task.specialty, task) %>
+    <%= link_to 'Edit', edit_project_specialty_task_path(task.specialty.project, task.specialty, task) %>
+    <%= link_to "Delete task", project_specialty_task_path(task.specialty.project, task.specialty, task),
       method: :delete,
       data: { confirm: "Are you sure?" } %>
   <% end %>

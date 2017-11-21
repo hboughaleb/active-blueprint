@@ -1,6 +1,6 @@
 class SpecialtiesController < ApplicationController
-  before_action :set_project, only: [:create, :new, :show, :edit, :destroy]
-  before_action :set_specialty, only: [:show]
+  before_action :set_project
+  before_action :set_specialty, only: [:show, :edit, :update]
   def new
     @specialty = Specialty.new
   end
@@ -10,24 +10,27 @@ class SpecialtiesController < ApplicationController
     # @specialty.user = current_user
     @specialty.project = @project
     if @specialty.save!
-      redirect_to project_path(@project)
+      redirect_to project_specialty_path(@project, @specialty)
     else
       render :new
     end
   end
 
-  def update
+  def gantt_update
     if current_user == Project.find(params[:project_id]).user
       Specialty.update_from_params(params)
     end
   end
 
-  def edit
+  def update
     if @specialty.update(specialty_params)
-      redirect_to project_path(@project)
+      redirect_to project_specialty_path(@project, @specialty)
     else
       render :edit
     end
+  end
+
+  def edit
   end
 
   def destroy

@@ -15,6 +15,8 @@
     <%= f.input :custom_class, collection: [ "blue", "red", "green", "orange", "grey", "brown", "violet", "yellow", "pink"], input_html: {  class: 'form-control' } %>
     <%= f.input :start, input_html: { placeholder: "", class: 'form-control' } %>
     <%= f.input :finish, input_html: { placeholder: "", class: 'form-control' } %>
+
+    <%# f.select "user", options_for_select(User.all.map { |obj| [obj['id'], obj['username']] }) %>
   </div>
 
   <div class="form-actions">

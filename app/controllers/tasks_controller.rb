@@ -30,16 +30,19 @@ class TasksController < ApplicationController
   end
 
   def edit          # GET /tasks/:id/edit
-    if @task.update(task_params)
-      redirect_to project_specialty_task_path(@specialty, @task)
-    else
-      render :edit
+  end
+
+  def gantt_update
+    if Specialty.find(params[:specialty_id]).users.include?(current_user)
+      Task.update_from_params(params)
     end
   end
 
   def update        # PATCH /tasks/:id
-    if Specialty.find(params[:specialty_id]).users.include?(current_user)
-      Task.update_from_params(params)
+    if @task.update(task_params)
+      redirect_to project_specialty_task_path(@specialty, @task)
+    else
+      render :edit
     end
   end
 
