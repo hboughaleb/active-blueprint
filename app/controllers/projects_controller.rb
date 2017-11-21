@@ -22,13 +22,19 @@ class ProjectsController < ApplicationController
   end
 
   def create        # POST /projects
-    binding.pry
     @project = Project.new(project_params)
     @project.user = current_user
 
-    project_start = Date.today # TO CHANGE LATER
-    project_end = Date.today + 100 # TO CHANGE LATER
-    projected_budget = @project.projected_budget
+
+    Project::PROJECT_TEMPLATE.each do |key, value|
+      binding.pry
+      # specialties.each do |specialty|
+      #   s = Specialty.create(name: specialty.name, description: specialty.description ...)
+      #   specialty.tasks.each do |task|
+      #     t = Task.create(title: task.title, description: task.description, start: s.start + task.start ...)
+      #   end
+      # end
+    end
 
     params["project"]["specialties"].reject(&:empty?).each do |specialty|
       if specialty == "carpenter"
@@ -98,6 +104,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :description, :start_date, :end_date, :projected_budget, :address, :status, :id)
+    params.require(:project).permit(:title, :description, :start_date, :end_date, :projected_budget, :address, :status)
   end
 end

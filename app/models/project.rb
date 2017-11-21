@@ -11,4 +11,183 @@ class Project < ApplicationRecord
   validates :address, presence: true
   validates :status, inclusion: { in: [ true, false ] }
 
+
+  PROJECT_TEMPLATE = {
+
+    villa: {
+      specialties:{
+        carpenter: {
+          name: "Carpenter",
+          start: 10,
+          finish: 40,
+          percentage_budget: 0,
+          progress: 0,
+          dependencies: "",
+          custom_class: "carpenter-class",
+          tasks: {
+            task1: {
+              name: "Phase 1",
+              description: "Make it happen",
+              status: "",
+              start: 0,
+              finish: 10,
+              percentage_budget: 25,
+              progress: 5,
+              custom_class: "task1"
+            },
+          task2: {
+              name: "Phase 2",
+              description: "Make it happen 2",
+              status: "",
+              start: 10,
+              finish: 20,
+              percentage_budget: 25,
+              progress: 5,
+              custom_class: "task2"
+            },
+            task3: {
+              name: "Phase 3",
+              description: "Make it happen 3",
+              status: "",
+              start: 20,
+              finish: 30,
+              percentage_budget: 50,
+              progress: 5,
+              custom_class: "task3"
+            }
+          }
+        },
+        plumbing: {
+          name: "Plumbing",
+          start: 10,
+          finish: 40,
+          percentage_budget: 0,
+          progress: 0,
+          dependencies: "",
+          custom_class: "plumbing-class",
+          tasks: {
+            task1: {
+              name: "Phase 1",
+              description: "Make it happen",
+              status: "",
+              start: 0,
+              finish: 10,
+              percentage_budget: 25,
+              progress: 5,
+              custom_class: "task1"
+            },
+          task2: {
+              name: "Phase 2",
+              description: "Make it happen 2",
+              status: "",
+              start: 10,
+              finish: 20,
+              percentage_budget: 25,
+              progress: 5,
+              custom_class: "task2"
+            },
+            task3: {
+              name: "Phase 3",
+              description: "Make it happen 3",
+              status: "",
+              start: 20,
+              finish: 30,
+              percentage_budget: 50,
+              progress: 5,
+              custom_class: "task3"
+            }
+          }
+        }
+      }
+    },
+    apartment: {
+       specialties:{
+        carpenter: {
+          name: "Carpenter",
+          start: 10,
+          finish: 40,
+          percentage_budget: 0,
+          progress: 0,
+          dependencies: "",
+          custom_class: "carpenter-class",
+          tasks: {
+            task1: {
+              name: "Phase 1",
+              description: "Make it happen",
+              status: "",
+              start: 0,
+              finish: 10,
+              percentage_budget: 25,
+              progress: 5,
+              custom_class: "task1"
+            },
+          task2: {
+              name: "Phase 2",
+              description: "Make it happen 2",
+              status: "",
+              start: 10,
+              finish: 20,
+              percentage_budget: 25,
+              progress: 5,
+              custom_class: "task2"
+            },
+            task3: {
+              name: "Phase 3",
+              description: "Make it happen 3",
+              status: "",
+              start: 20,
+              finish: 30,
+              percentage_budget: 50,
+              progress: 5,
+              custom_class: "task3"
+            }
+          }
+        },
+        plumbing: {
+          name: "Plumbing",
+          start: 10,
+          finish: 40,
+          percentage_budget: 0,
+          progress: 0,
+          dependencies: "",
+          custom_class: "plumbing-class",
+          tasks: {
+            task1: {
+              name: "Phase 1",
+              description: "Make it happen",
+              status: "",
+              start: 0,
+              finish: 10,
+              percentage_budget: 25,
+              progress: 5,
+              custom_class: "task1"
+            },
+          task2: {
+              name: "Phase 2",
+              description: "Make it happen 2",
+              status: "",
+              start: 10,
+              finish: 20,
+              percentage_budget: 25,
+              progress: 5,
+              custom_class: "task2"
+            },
+            task3: {
+              name: "Phase 3",
+              description: "Make it happen 3",
+              status: "",
+              start: 20,
+              finish: 30,
+              percentage_budget: 50,
+              progress: 5,
+              custom_class: "task3"
+            }
+          }
+        }
+      }
+    }
+
+  }
+
 end
+
