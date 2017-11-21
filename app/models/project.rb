@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :user
-  has_many :specialties
+  has_many :specialties, dependent: :destroy
   has_many :tasks, through: :specialties
   has_many :contributors, through: :tasks, source: :user
 
@@ -53,8 +53,8 @@ class Project < ApplicationRecord
             }
           }
         },
-        plumbing: {
-          name: "Plumbing",
+        plumber: {
+          name: "Plumber",
           start: 10,
           finish: 40,
           percentage_budget: 0,
