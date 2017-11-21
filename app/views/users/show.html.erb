@@ -8,19 +8,19 @@
         <div class="tabs">
           <a class="tab active" href="#">
             <h3><%= @user.projects.length %></h3>
-            <p> projects </p>
+            <p> project(s) </p>
           </a>
           <a class="tab" href="#">
             <h3>27</h3>
-            <p> contributors </p>
+            <p> contributor(s) </p>
           </a>
           <a class="tab" href="#">
             <h3>54</h3>
-            <p> reviews </p>
+            <p> review(s) </p>
           </a>
           <a class="tab" href="#">
             <h3>13</h3>
-            <p> something else </p>
+            <p> outstanding tasks </p>
           </a>
         </div>
       </div>
@@ -28,25 +28,25 @@
 
     <div class="container">
       <div class="product">
-        <div class='product-upvote'>
+        <div class="product-upvote">
           <div class="product-arrow"></div>
-          <div class='product-count'></div>
         </div>
-        <img src="images/kudoz.jpg" alt="" class="product-image">
-        <div class='product-body'>
-          <h3> title of user's project </h3>
-          <p> description of said project </p>
+        <%= @user.projects.each do |project| %>
+        <% @user.project.cover %>
+        <div class="product-body">
+          <h3><% @user.project.title %></h3>
+          <p><% @user.project.description %></p>
         </div>
         <ul class="list-inline product-controls">
           <li><a href=""><i class="fa fa-heart"></i></a></li>
           <li><a href=""><i class="fa fa-share"></i></a></li>
           <li><a href=""><i class="fa fa-star"></i></a></li>
         </ul>
+        <% end %>
       </div>
-      <div class="product">
-        <div class='product-upvote'>
+      <!-- <div class="product">
+        <div class="product-upvote">
           <div class="product-arrow"></div>
-          <div class='product-count'></div>
         </div>
         <img src="images/uslide.jpg" alt="" class="product-image">
         <div class='product-body'>
@@ -60,9 +60,8 @@
         </ul>
       </div>
       <div class="product">
-        <div class='product-upvote'>
+        <div class="product-upvote">
           <div class="product-arrow"></div>
-          <div class='product-count'></div>
         </div>
         <img src="images/roadstr.jpg" alt="" class="product-image">
         <div class='product-body'>
@@ -73,6 +72,6 @@
           <li><a href=""><i class="fa fa-heart"></i></a></li>
           <li><a href=""><i class="fa fa-share"></i></a></li>
           <li><a href=""><i class="fa fa-star"></i></a></li>
-        </ul>
-      </div>
+        </ul> -->
+      <!-- </div> -->
     </div>
