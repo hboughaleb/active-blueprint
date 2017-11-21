@@ -24,59 +24,28 @@ class ProjectsController < ApplicationController
   def create        # POST /projects
     @project = Project.new(project_params)
     @project.user = current_user
+    budget = @project.projected_budget
 
-
-    Project::PROJECT_TEMPLATE.each do |key, value|
-      binding.pry
-      # specialties.each do |specialty|
-      #   s = Specialty.create(name: specialty.name, description: specialty.description ...)
-      #   specialty.tasks.each do |task|
-      #     t = Task.create(title: task.title, description: task.description, start: s.start + task.start ...)
-      #   end
-      # end
-    end
-
-    params["project"]["specialties"].reject(&:empty?).each do |specialty|
-      if specialty == "carpenter"
-        specialty_budget = ( projected_budget * 20 ) / 100
-        specialty = Specialty.create(name: specialty, start: project_start, finish: project_end, progress: 0, dependencies: '', custom_class: '#{specialty}-class')
-        task_1 = Task.create!(specialty: specialty, description: "Phase 1 description", name: "Phase 1", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today, finish: Date.today + 20, progress: 0, custom_class: "task-1-class")
-        task_2 = Task.create!(specialty: specialty, description: "Phase 2 description", name: "Phase 2", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today + 10, finish: Date.today + 30, progress: 0, custom_class: "task-1-class", dependencies: "#{task_1.id}")
-        task_3 = Task.create!(specialty: specialty, description: "Phase 3 description", name: "Phase 3", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today + 20, finish: Date.today + 40, progress: 0, custom_class: "task-1-class", dependencies: "#{task_2.id}")
-        task_4 = Task.create!(specialty: specialty, description: "Phase 4 description", name: "Phase 4", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today + 30, finish: Date.today + 50, progress: 0, custom_class: "task-1-class", dependencies: "#{task_3.id}")
-
-      elsif specialty == "roofer"
-        specialty_budget = ( projected_budget * 40 ) / 100
-        specialty = Specialty.create(name: specialty, start: project_start, finish: project_end, progress: 0, dependencies: '', custom_class: '#{specialty}-class')
-        task_1 = Task.create!(specialty: specialty, description: "Phase 1 description", name: "Phase 1", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today, finish: Date.today + 20, progress: 0, custom_class: "task-1-class")
-        task_2 = Task.create!(specialty: specialty, description: "Phase 2 description", name: "Phase 2", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today + 10, finish: Date.today + 30, progress: 0, custom_class: "task-1-class", dependencies: "#{task_1.id}")
-        task_3 = Task.create!(specialty: specialty, description: "Phase 3 description", name: "Phase 3", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today + 20, finish: Date.today + 40, progress: 0, custom_class: "task-1-class", dependencies: "#{task_2.id}")
-        task_4 = Task.create!(specialty: specialty, description: "Phase 4 description", name: "Phase 4", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today + 30, finish: Date.today + 50, progress: 0, custom_class: "task-1-class", dependencies: "#{task_3.id}")
-
-      elsif specialty == "electrician"
-        specialty_budget = ( projected_budget * 40 ) / 100
-        specialty = Specialty.create(name: specialty, start: project_start, finish: project_end, progress: 0, dependencies: '', custom_class: '#{specialty}-class')
-        task_1 = Task.create!(specialty: specialty, description: "Phase 1 description", name: "Phase 1", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today, finish: Date.today + 20, progress: 0, custom_class: "task-1-class")
-        task_2 = Task.create!(specialty: specialty, description: "Phase 2 description", name: "Phase 2", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today + 10, finish: Date.today + 30, progress: 0, custom_class: "task-1-class", dependencies: "#{task_1.id}")
-        task_3 = Task.create!(specialty: specialty, description: "Phase 3 description", name: "Phase 3", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today + 20, finish: Date.today + 40, progress: 0, custom_class: "task-1-class", dependencies: "#{task_2.id}")
-        task_4 = Task.create!(specialty: specialty, description: "Phase 4 description", name: "Phase 4", budget: ( ( specialty_budget * 25 )/100 ), status: "Stand by", start: Date.today + 30, finish: Date.today + 50, progress: 0, custom_class: "task-1-class", dependencies: "#{task_3.id}")
+    if @project.save
+      Project::PROJECT_TEMPLATE.each do |key, types|
+        if params["generate"]["type"] == key.to_s
+          types.each do |key, specialties|
+            specialties.each do |key, specialty|
+              s = Specialty.create(name: specialty[:name], budget: (budget * specialty[:percentage_budget])/100 ,
+                start:  @project.start_date + specialty[:start], finish: @project.end_date - specialty[:finish],
+                progress: 5, dependencies: specialty[:dependencies],
+                custom_class: specialty[:custom_class])
+              specialty.each do |key, task|
+                Task.create!(specialty: s, description: task[:description],
+                  name: task[:name], budget: (s.budget * task[:percentage_budget]) / 100,
+                  status: "Stand by", start: s.start + task[:start], finish: s.start + task[:finish],
+                  progress: 5, custom_class: task[:custom_class])
+              end
+            end
+          end
+        end
       end
-    end
 
-    if @project.save!
-
-      # generate = params[:generate][:type]
-      # if generate != "" && false
-      #   if generate == "Building a Villa"
-      #     Task.create!(specialty: "Founder", project: @project, title: "Build a foundation", budget: "1000000", status: "Stand by", start_date: Date.today, end_date: Date.today+1)
-      #     Task.create!(specialty: "Roofer", project: @project, title: "Put a roof on it", budget: "10000", status: "Stand by", start_date: Date.today, end_date: Date.today+3)
-      #     Task.create!(specialty: "Waller", project: @project, title: "Walls would be good", budget: "1000000", status: "Stand by", start_date: Date.today, end_date: Date.today+5)
-      #   elsif "Remodeling an Apartment"
-      #     Task.create!(specialty: "Swinger", project: @project, title: "Tear down the walls", budget: "1000000", status: "Stand by", start_date: Date.today, end_date: Date.today+1)
-      #     Task.create!(specialty: "Finisher", project: @project, title: "Finish the floors", budget: "10000", status: "Stand by", start_date: Date.today, end_date: Date.today+3)
-      #     Task.create!(specialty: "Painter", project: @project, title: "Paint walls", budget: "1000000", status: "Stand by", start_date: Date.today, end_date: Date.today+5)
-      #   end
-      # end
       redirect_to projects_path(@project)
     else
       render :new

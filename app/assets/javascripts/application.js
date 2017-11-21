@@ -5,5 +5,6 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require gantt
-//= require_tree .
 //= require bootstrap-datepicker
+//= require_tree .
+

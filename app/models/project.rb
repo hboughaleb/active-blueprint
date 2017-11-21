@@ -21,7 +21,6 @@ class Project < ApplicationRecord
           start: 10,
           finish: 40,
           percentage_budget: 0,
-          progress: 0,
           dependencies: "",
           custom_class: "carpenter-class",
           tasks: {
@@ -32,7 +31,6 @@ class Project < ApplicationRecord
               start: 0,
               finish: 10,
               percentage_budget: 25,
-              progress: 5,
               custom_class: "task1"
             },
           task2: {
@@ -42,7 +40,6 @@ class Project < ApplicationRecord
               start: 10,
               finish: 20,
               percentage_budget: 25,
-              progress: 5,
               custom_class: "task2"
             },
             task3: {
@@ -52,7 +49,6 @@ class Project < ApplicationRecord
               start: 20,
               finish: 30,
               percentage_budget: 50,
-              progress: 5,
               custom_class: "task3"
             }
           }
@@ -62,7 +58,6 @@ class Project < ApplicationRecord
           start: 10,
           finish: 40,
           percentage_budget: 0,
-          progress: 0,
           dependencies: "",
           custom_class: "plumbing-class",
           tasks: {
@@ -73,7 +68,6 @@ class Project < ApplicationRecord
               start: 0,
               finish: 10,
               percentage_budget: 25,
-              progress: 5,
               custom_class: "task1"
             },
           task2: {
@@ -83,7 +77,6 @@ class Project < ApplicationRecord
               start: 10,
               finish: 20,
               percentage_budget: 25,
-              progress: 5,
               custom_class: "task2"
             },
             task3: {
@@ -93,7 +86,6 @@ class Project < ApplicationRecord
               start: 20,
               finish: 30,
               percentage_budget: 50,
-              progress: 5,
               custom_class: "task3"
             }
           }
@@ -107,7 +99,6 @@ class Project < ApplicationRecord
           start: 10,
           finish: 40,
           percentage_budget: 0,
-          progress: 0,
           dependencies: "",
           custom_class: "carpenter-class",
           tasks: {
@@ -118,7 +109,6 @@ class Project < ApplicationRecord
               start: 0,
               finish: 10,
               percentage_budget: 25,
-              progress: 5,
               custom_class: "task1"
             },
           task2: {
@@ -128,7 +118,6 @@ class Project < ApplicationRecord
               start: 10,
               finish: 20,
               percentage_budget: 25,
-              progress: 5,
               custom_class: "task2"
             },
             task3: {
@@ -138,7 +127,6 @@ class Project < ApplicationRecord
               start: 20,
               finish: 30,
               percentage_budget: 50,
-              progress: 5,
               custom_class: "task3"
             }
           }
@@ -148,7 +136,6 @@ class Project < ApplicationRecord
           start: 10,
           finish: 40,
           percentage_budget: 0,
-          progress: 0,
           dependencies: "",
           custom_class: "plumbing-class",
           tasks: {
@@ -159,7 +146,6 @@ class Project < ApplicationRecord
               start: 0,
               finish: 10,
               percentage_budget: 25,
-              progress: 5,
               custom_class: "task1"
             },
           task2: {
@@ -169,7 +155,6 @@ class Project < ApplicationRecord
               start: 10,
               finish: 20,
               percentage_budget: 25,
-              progress: 5,
               custom_class: "task2"
             },
             task3: {
@@ -179,7 +164,6 @@ class Project < ApplicationRecord
               start: 20,
               finish: 30,
               percentage_budget: 50,
-              progress: 5,
               custom_class: "task3"
             }
           }
