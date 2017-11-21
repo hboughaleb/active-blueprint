@@ -1,5 +1,6 @@
 class SpecialtiesController < ApplicationController
   before_action :set_project, only: [:create, :new, :show, :edit, :destroy]
+  before_action :set_specialty, only: [:show, :update]
   def new
     @specialty = Specialty.new
   end
@@ -36,12 +37,13 @@ class SpecialtiesController < ApplicationController
   end
 
   def show
+    @specialties = Task.all.as_gantt_tasks
   end
 
   private
 
   def set_specialty
-    @specialty = Specialty.find(params[:id])
+    @specialty = Specialty.find(params[:id || :specialty_id])
   end
 
   def set_project
@@ -49,6 +51,6 @@ class SpecialtiesController < ApplicationController
   end
 
   def specialty_params
-    params.require(:specialty).permit(:name, :start, :finish, :progress, :dependencies, :custom_class, :project_id)
+    params.require(:specialty).permit(:name, :start, :finish, :progress, :dependencies, :custom_class, :id, :project_id)
   end
 end
