@@ -6,7 +6,7 @@
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-family: $light-font, "Helvetica Neue", Arial, sans-serif;
 }
 .footer-links {
   display: flex;
@@ -16,7 +16,7 @@
   color: black;
   opacity: 0.15;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 20px;
   padding: 0px 10px;
 }
 .footer-links a:hover {
