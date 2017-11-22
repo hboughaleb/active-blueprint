@@ -1,9 +1,33 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 
+@font-face {
+  font-family: "proxima_nova_bold";
+  src: font-url('ProximaNova-Bold.otf'),
+        font-url('ProximaNovaBold.ttf') format('truetype');
+}
+
+$bold-font: "proxima_nova_bold", "Open Sans", "Helvetica", "sans-serif";
+
+@font-face {
+  font-family: "proxima_nova_regular";
+  src: font-url('ProximaNova-Regular.otf'),
+        font-url('ProximaNovaReg.ttf') format('truetype');
+}
+
+$regular-font: "proxima_nova_regular", "Open Sans", "Helvetica", "sans-serif";
+
+@font-face {
+  font-family: "proxima_nova_light";
+  src: font-url('ProximaNova-Light.otf'),
+        font-url('ProximaNovaLight.ttf') format('truetype');
+}
+
+$light-font: "proxima_nova_light", "Open Sans", "Helvetica", "sans-serif";
+
 // Define fonts for body and headers
-$body-font: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-$headers-font: "Raleway", "Helvetica", "sans-serif";
+$body-font: $regular-font, "Helvetica Neue", Arial, sans-serif;
+$headers-font: $bold-font, "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
