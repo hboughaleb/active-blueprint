@@ -1,54 +1,46 @@
-
-<div class="container">
-
-  <div class="section">
-    <h1><%= @specialty.name %></h1>
-    <p><%= @specialty.dependencies %></p>
-    <p><%= @specialty.custom_class %></p>
-    <p><%= @specialty.start.strftime("%Y-%m-%d") %></p>
-    <p><%= @specialty.finish.strftime("%Y-%m-%d") %></p>
-    <p><%= @specialty.progress %></p>
-    <% @specialty.users.each do |u| %>
-      <p><%= u.username %></p>
-    <% end %>
-
-    <div>
-      <%= link_to "Edit specialty", edit_project_specialty_path(@project, @specialty), class:'button' %>
+<div class="full-wrapper ">
+  <div class="row">
+    <div class="col-xs-3">
+      <div class="sidebar-wrapper">
+        <div class="sidebar-nav">
+            <%= render "shared/navcard_tasks" %>
+        </div>
+      </div>
     </div>
-
-    <dir>
-      <%= link_to "Delete specialty", project_specialty_path(@specialty), class:'button', method: :delete %>
-    </dir>
-
-    <div>
-      <a href="#" class="btn-treehouse">message my team</a>
+    <div class="col-xs-9">
+      <div class="page-content-wrapper">
+        <div class="page-content">
+          <div class="container">
+            <div class="section">
+              <h3><%= @specialty.name %> <%= link_to "", edit_project_specialty_path(@project, @specialty), class:"fa fa-pencil" %> <%= link_to "", project_specialty_path(@specialty), class:'fa fa-trash', method: :delete %></h3>
+              <p><%= @specialty.dependencies %></p>
+              <p><%= @specialty.custom_class %></p>
+              <p><%= @specialty.start.strftime("%Y-%m-%d") %></p>
+              <p><%= @specialty.finish.strftime("%Y-%m-%d") %></p>
+              <p><%= @specialty.progress %></p>
+              <% @specialty.users.each do |u| %>
+                <p><%= u.username %></p>
+              <% end %>
+            </div>
+            <h2>Specialties  <%= link_to "", new_project_specialty_task_path(@project, @specialty), class:"fa fa-plus" %></h2>
+            <div class="gantt-container" style="overflow: scroll;">
+              <svg id="gantt"></svg>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="section">
-    <h2>Specialties  <%= link_to "Add a new task", new_project_specialty_task_path(@project, @specialty) %></h2>
-
-  </div>
-  <div class="gantt-container" style="overflow: scroll;">
-    <svg id="gantt"></svg>
-
-    <%= form_tag tasks_gantt_update_path(@project, @specialty), method: :patch, remote: true, id: "hidden_gantt_form" do %>
-      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <%= hidden_field_tag :tasks, "", id: "gnatt_tasks_input"  %>
-    <% end %>
   </div>
 </div>
-<!-- <a href="#" class="btn-treehouse">message my team</a> -->
-
-
-<!-- <h2> Location of the specialty (Geocoding?) </h2>
-
-<h2> (Maybe on to the right side) Location of the specialty (Geocoding?) </h2>
-
-<p>a button could be handy if we <%= link_to "a handy button", class: "btn-treehouse" %> want to send a message to everyone involved in the job</p> -->
 
 <%= content_for(:after_js) do %>
   <script>
   var railsGantt = new RailsGantt("#gantt", <%= raw JSON.generate(@tasks) %>);
   railsGantt.gantt.change_view_mode('Month')
 </script>
+<% end %>
+
+<%= form_tag tasks_gantt_update_path(@project, @specialty), method: :patch, remote: true, id: "hidden_gantt_form" do %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :tasks, "", id: "gnatt_tasks_input"  %>
 <% end %>

@@ -35,6 +35,8 @@ class SpecialtiesController < ApplicationController
   end
 
   def destroy
+    @task.destroy
+    redirect_to project_specialty_path(@specialty)
   end
 
   def index
