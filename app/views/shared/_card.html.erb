@@ -1,9 +1,9 @@
 <div class="col-xs-12 col-sm-6 col-md-4">
-  <%= link_to project_path(project), class: "card-link"  do %>
-    <div class="card" style="background-color: #357aa9">
-      <div class="card-description">
-        <h2><%= project.title %></h2>
-      </div>
+  <%= link_to project_path(project) do %>
+  <div class="card" style="background-image: url('<%= cl_image_path project.cover.path, crop: :fill, width: 150, height: 100 rescue "" %>')">
+    <div class="card-description">
+      <h2><%= project.title %></h2>
     </div>
+  </div>
   <% end %>
 </div>

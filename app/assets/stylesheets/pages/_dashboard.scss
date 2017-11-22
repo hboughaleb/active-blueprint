@@ -1,0 +1,98 @@
+.profile-header-wrapper {
+  background: #919397;
+}
+.profile-header-container img {
+  width: 100px;
+  border-radius: 50%;
+}
+.profile-header-container h1 {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+.profile-header-container h2 {
+  color: white;
+  opacity: 0.4;
+  font-size: 18px;
+  font-weight: lighter;
+  margin-bottom: 0;
+  letter-spacing: -1px;
+}
+.profile-header-infos {
+  padding: 20px 0;
+}
+
+.navbar-wagon {
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  background-color: gray !important;
+  transition: all 0.3s ease;
+  height: 70px;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: $body-font;
+  a {
+  color: black !important;
+  text-decoration: none !important;
+  }
+}
+
+.card {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+}
+
+.project-card {
+  height: 250px !important;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 50%;
+}
+.card-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.card-description h2 {
+  font-size: 24px;
+}
+.card-description p {
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover {
+  opacity: 0.1;
+}
