@@ -31,7 +31,7 @@
   <div class="gantt-container" style="overflow: scroll;">
     <svg id="gantt"></svg>
 
-    <%= form_tag project_specialty_task_path(@project, @specialty, 1), method: :patch, remote: true, id: "hidden_gantt_form" do %>
+    <%= form_tag tasks_gantt_update_path(@project, @specialty), method: :patch, remote: true, id: "hidden_gantt_form" do %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <%= hidden_field_tag :tasks, "", id: "gnatt_tasks_input"  %>
     <% end %>
