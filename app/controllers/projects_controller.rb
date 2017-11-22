@@ -13,8 +13,9 @@ class ProjectsController < ApplicationController
     if current_user != @project.user
       redirect_to root_path
     end
-    @specialties = Specialty.where(project: @project).order(:id).as_gantt_tasks
-    @specialtiez = Specialty.where(project: @project).order(:id)
+    @specialties = @project.specialties
+    #@specialties = Specialty.where(project: @project).order(:id).as_gantt_tasks
+    #@specialtiez = Specialty.where(project: @project).order(:id)
   end
 
   def new           # GET /projects/new

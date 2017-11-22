@@ -48,7 +48,7 @@
 
 <%= content_for(:after_js) do %>
   <script>
-  var railsGantt = new RailsGantt("#gantt", <%= raw JSON.generate(@specialties) %>);
+  var railsGantt = new RailsGantt("#gantt", <%= raw JSON.generate(@tasks) %>);
   railsGantt.gantt.change_view_mode('Month')
 </script>
 <% end %>

@@ -1,4 +1,4 @@
-<% @specialtiez.each do |s| %>
+<% @specialties.each do |s| %>
   <div class="card">
     <div class="card-description">
       <p><%= link_to "#{s.name}" , project_specialty_path( @project, s) %></p>

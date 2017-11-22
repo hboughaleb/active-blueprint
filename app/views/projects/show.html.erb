@@ -21,7 +21,7 @@
               <p><%= @project.status %></p>
               <div><a href="#" class="btn-treehouse">message my team</a></div>
             </div>
-            <h2>Specialties  <%= link_to "Add a new specialty", new_project_specialty_path(@project) %></h2>
+            <h2>Specialties  <%= link_to "", new_project_specialty_path(@project), class:"fa fa-plus" %></h2>
             <div class="gantt-container" style="overflow: scroll;">
               <svg id="gantt"></svg>
             </div>
@@ -45,7 +45,7 @@
 
 <%= content_for(:after_js) do %>
   <script>
-  var railsGantt = new RailsGantt("#gantt", <%= raw JSON.generate(@specialties) %>);
+  var railsGantt = new RailsGantt("#gantt", <%= raw JSON.generate(@specialties.as_gantt_tasks) %>);
   railsGantt.gantt.change_view_mode('Month')
 </script>
 <% end %>
