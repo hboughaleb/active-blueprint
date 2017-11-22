@@ -22,7 +22,7 @@ class Project < ApplicationRecord
           name: "Carpenter",
           start: 10,
           finish: 40,
-          percentage_budget: 0,
+          percentage_budget: 20,
           dependencies: "",
           custom_class: "carpenter-class",
           tasks: {

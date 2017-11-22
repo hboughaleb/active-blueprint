@@ -1,6 +1,7 @@
 class SpecialtiesController < ApplicationController
   before_action :set_project
   before_action :set_specialty, only: [:show, :edit, :update]
+
   def new
     @specialty = Specialty.new
   end
@@ -34,6 +35,8 @@ class SpecialtiesController < ApplicationController
   end
 
   def destroy
+    @task.destroy
+    redirect_to project_specialty_path(@specialty)
   end
 
   def index
@@ -41,7 +44,7 @@ class SpecialtiesController < ApplicationController
   end
 
   def show
-    @specialties = Task.all.as_gantt_tasks
+    @tasks = Specialty.find(params[:id]).tasks.as_gantt_tasks
   end
 
   private

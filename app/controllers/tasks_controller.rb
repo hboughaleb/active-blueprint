@@ -48,7 +48,7 @@ class TasksController < ApplicationController
 
   def destroy       # DELETE /tasks/:id
     @task.destroy
-    redirect_to project_specialty_path(@specialty)
+    redirect_to project_specialty_task_path(@specialty)
   end
 
   private

@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-family: $body-font;
   a {
   color: black !important;
   text-decoration: none !important;
@@ -43,7 +43,7 @@
 /* Navbar link */
 .navbar-wagon-link {
   color: #616668;
-  font-size: 14px;
+  font-size: 15px;
 }
 .navbar-wagon-link:hover {
   color: #da552f;
