@@ -1,26 +1,61 @@
-<%= simple_form_for ([@project, @specialty] ), html: { class: "form-group"} do |f| %>
-  <% if @specialty.errors.any? %>
-    <div id=“error_explanation”>
-      <ul>
-      <% @specialty.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="form-inputs">
-    <%= f.input :name, input_html: { placeholder: "Plumbing, painting, electricity...", class: 'form-control' } %>
-    <%= f.input :progress, input_html: { placeholder: " 35 (for 35%)  ", class: 'form-control' } %>
-    <%= f.input :dependencies, input_html: { placeholder: "", class: 'form-control' } %>
-    <%= f.input :custom_class, collection: [ "blue", "red", "green", "orange", "grey", "brown", "violet", "yellow", "pink"], input_html: {  class: 'form-control' } %>
-    <%= f.input :start, input_html: { placeholder: "", class: 'form-control' } %>
-    <%= f.input :finish, input_html: { placeholder: "", class: 'form-control' } %>
 
-    <%# f.select "user", options_for_select(User.all.map { |obj| [obj['id'], obj['username']] }) %>
-  </div>
+      <%= simple_form_for ([@project, @specialty] ), html: { class: "form-group"} do |f| %>
+        <% if @specialty.errors.any? %>
+          <div id=“error_explanation”>
+          <ul>
+            <% @specialty.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+          </div>
+        <% end %>
 
-  <div class="form-actions">
-    <%= f.submit class: "btn btn-success" %>
-  </div>
+      <div class="form-inputs">
+        <%= f.input :name, input_html: { placeholder: "Plumbing, painting, electricity...", class: 'form-control' } %>
+        <%= f.input :progress, input_html: { placeholder: " 35 (for 35%)  ", class: 'form-control' } %>
+        <%= f.input :custom_class, collection: [ "blue", "red", "green", "orange", "grey", "brown", "violet", "yellow", "pink"], input_html: {  class: 'form-control' } %>
+
+        <%= f.input :start, as: :datetime, input_html: { id: "start_date",placeholder: "", class: 'form-control datepicker' } %>
+        <%= f.input :finish, as: :datetime, input_html: { id: "start_date",placeholder: "", class: 'form-control datepicker' } %>
+        <div class="button-group" style="position: relative;">
+          <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+              Dependencies
+          </button>
+          <ul class="dropdown-menu">
+            <% Specialty.where("project_id = ? AND id != ?", @project.id, (@specialty.id || 9999)).each do |specialty| %>
+              <li><a href="#" class="small" data-value="<%= specialty.id %>" tabIndex="-1"><input name="<%= specialty.id %>" type="checkbox"/> <%= specialty.name %></a></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="form-actions">
+          <%= f.submit class: "btn btn-success" %>
+        </div>
+      </div>
+      <%# f.select "user", options_for_select(User.all.map { |obj| [obj['id'], obj['username']] }) %>
 <% end %>
+<%= content_for :after_js do %>
+  <script>
+    var options = [];
 
+    $('.dropdown-menu a').on('click', function( event ) {
+
+      var $target = $(event.currentTarget),
+        val = $target.attr( 'data-value' ),
+        $inp = $target.find( 'input' ),
+        idx;
+
+      if ((idx = options.indexOf(val)) > -1) {
+          options.splice( idx, 1 );
+          setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
+      } else {
+          options.push( val );
+          setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+      }
+
+      $( event.target ).blur();
+
+      console.log( options );
+      return false;
+    });
+  </script>
+<% end %>

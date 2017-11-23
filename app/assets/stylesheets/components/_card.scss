@@ -1,3 +1,47 @@
+.nav-card{
+  border: solid 0.3px rgba(151, 151, 151, 0.25);
+  box-shadow: 0px 2px 20px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  padding: 5px;
+  height: 110px;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.card-title {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+.card-title h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.card-title p {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.card-avatars {
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+}
+
+.add-card{
+  background-color: rgba(151, 151, 151, 0.25);
+  padding: 5px;
+  height: 110px;
+  position: relative;
+  text-align: center;
+  span {
+    line-height: 110px;
+    vertical-align: middle;
+    font-size: 24px;
+  }
+}
+
 .card {
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
@@ -25,6 +69,7 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
+
 }
 .card-description h2 {
   font-size: 24px;

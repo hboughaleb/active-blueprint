@@ -10,9 +10,7 @@
     </div>
   <% end %>
   <div class="form-inputs">
-    <h1>Add a Project</h1>
-    <%= f.input :title, input_html: { placeholder: "Name your project?", class: 'form-control' } %>
-
+    <%= f.input :title, input_html: { placeholder: "Name your project", class: 'form-control' } %>
     <h2>Project Generator</h2>
     <div class="generator">
       <div class="doublefields">
@@ -22,13 +20,11 @@
         <%= f.input :projected_budget, as: :decimal, input_html: { placeholder: "Amount as a decimal", class: 'form-control' } %>
       </div>
       <%= f.input :specialties, as: :check_boxes, collection: Specialty::SPECIALTIES, class: "specialties-checkboxes" %>
+      <div class="doublefields">
+        <%= f.input :start_date, as: :string, input_html: { id: "start_date",placeholder: "", class: 'form-control datepicker' } %>
+        <%= f.input :end_date, as: :string, input_html: { id: "end_date", placeholder: "", class: 'form-control datepicker' } %>
+      </div>
     </div>
-
-    <div class="doublefields">
-      <%= f.input :start_date, as: :string, input_html: { id: "start_date",placeholder: "", class: 'form-control datepicker' } %>
-      <%= f.input :end_date, as: :string, input_html: { id: "end_date", placeholder: "", class: 'form-control datepicker' } %>
-    </div>
-
 
     <%= f.input :address, input_html: { placeholder: "Where's it taking place?", class: 'form-control' } %>
     <%= f.input :description, input_html: { placeholder: "Be specific...", class: 'form-control' } %>
@@ -37,9 +33,9 @@
       <%= f.input :status, collection: [ "Stand by", "Pending Ok", "Pending Blocked", "Closed", "Adandonned", "Completed"], input_html: {  class: 'form-control' } %>
       <%= f.input :cover, as: :attachinary %>
     </div>
-  </div>
-  <div class="form-actions">
-    <%= f.submit class: "btn btn-success" %>
+    <div class="form-actions">
+      <%= f.submit class: "btn btn-success" %>
+    </div>
   </div>
 
 <% end %>

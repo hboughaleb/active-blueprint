@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   def index         # GET /projects
     @projects = current_user.projects
+    @tasks = Task.where(user: current_user)
   end
 
   def show          # GET /projects/:id
