@@ -66,11 +66,11 @@
   text-align: center !important;
 }
 .message-name h3 {
-  font-size: 13px;
+  font-size: 13px !important;
   margin-bottom: 0px;
 }
 .message-name p {
-  font-size: 13px;
+  font-size: 13px !important;
   font-weight: lighter;
   opacity: 0.6;
   margin-top: 5px;
@@ -90,4 +90,8 @@
 }
 .message-body p {
   margin: 6px 0;
+}
+
+.material-icons {
+  font-size: 60px;
 }
