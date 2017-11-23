@@ -1,20 +1,22 @@
-<div class="container">
-  <h2>sign up</h2>
+<div class="container-fluid centered">
+  <div class="form-style">
+    <div class="content-center">
+      <h1>sign up</h1>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :password, required: true, hint: ("note: minimum of #{@minimum_password_length} characters needed" if @minimum_password_length) %>
-      <%= f.input :password_confirmation, required: true %>
-      <%= f.input :photo, as: :attachinary %>
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :password, required: true, hint: ("note: minimum of #{@minimum_password_length} characters needed" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true %>
+          <%= f.input :photo, as: :attachinary %>
+        <div class="form-actions">
+          <%= f.button :submit, "sign up", class: 'btn btn-success'  %>
+        </div>
+      <% end %>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "sign up" %>
-    </div>
-  <% end %>
-
+   </div>
   <%= render "devise/shared/links" %>
+  </div>
 </div>
