@@ -8,9 +8,9 @@
       </p>
       <div class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-          70%
+          <%= @project.total_progress %>%
         </div>
-        <script>document.querySelector(".progress-bar").style.width = "<%= @specialty.progress %>%";</script>
+        <script>document.querySelector(".progress-bar").style.width = "<%= @project.total_progress %>%";</script>
       </div>
     </div>
   </div>

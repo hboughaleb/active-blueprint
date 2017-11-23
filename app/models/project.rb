@@ -14,7 +14,9 @@ class Project < ApplicationRecord
   validates :status, inclusion: { in: [ true, false ] }
 
   def total_progress
-    
+    total = 0;
+    specialties.each { |specialty| total += specialty.progress }
+    total / specialties.length
   end
 
   PROJECT_TEMPLATE = {
