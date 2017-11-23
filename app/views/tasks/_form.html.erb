@@ -21,11 +21,11 @@
           Add Dependencies
       </button>
       <ul class="dropdown-menu" id="dependency-dropdown-menu">
-        <% Specialty.where("project_id = ? AND id != ?", @project.id, (@specialty.id || 9999)).each do |specialty| %>
+        <% Task.where("specialty_id = ? AND id != ?", @specialty.id, (@task.id || 9999)).each do |task| %>
           <li>
-            <a href="#" class="small" data-value="<%= specialty.id %>" tabIndex="-1">
-              <input name="possible_dependencies[<%= specialty.id %>]" type="hidden" value="present">
-              <input name="dependencies[<%= specialty.id %>]" type="checkbox" <%= "checked" if @specialty.is_dependent_on.to_a.include?(specialty) %> /> <%= specialty.name %>
+            <a href="#" class="small" data-value="<%= task.id %>" tabIndex="-1">
+              <input name="possible_dependencies[<%= task.id %>]" type="hidden" value="present">
+              <input name="dependencies[<%= task.id %>]" type="checkbox" <%= "checked" if @task.is_dependent_on.to_a.include?(task) %> /> <%= task.name %>
             </a>
           </li>
         <% end %>
@@ -43,8 +43,31 @@
 <% content_for(:after_js) do %>
   <script type="text/javascript">
     $(document).ready(function(){
-        $('.datepicker').datepicker({
-          format: 'dd/mm/yyyy'
+      $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy'
+      });
+
+      var options = [];
+
+      $('.dropdown-menu a').on('click', function( event ) {
+
+        var $target = $(event.currentTarget),
+          val = $target.attr( 'data-value' ),
+          $inp = $target.find( 'input' ),
+          idx;
+
+        if ((idx = options.indexOf(val)) > -1) {
+            options.splice( idx, 1 );
+            setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
+        } else {
+            options.push( val );
+            setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+        }
+
+        $( event.target ).blur();
+
+        console.log( options );
+        return false;
       });
     });
   </script>
