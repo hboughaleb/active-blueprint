@@ -7,8 +7,8 @@ class SpecialtiesController < ApplicationController
   end
 
   def create
-    manage_dependencies
     @specialty = Specialty.new(specialty_params)
+    manage_dependencies
     @specialty.project = @project
     if @specialty.save!
       redirect_to project_specialty_path(@project, @specialty)
@@ -62,4 +62,20 @@ class SpecialtiesController < ApplicationController
   def specialty_params
     params.require(:specialty).permit(:name, :start, :finish, :progress, :dependencies, :custom_class, :id, :project_id)
   end
+
+  def manage_dependencies
+    if params[:possible_dependencies] 
+      params[:possible_dependencies].keys.each do |possible_dependency|
+        if params[:dependencies] && params[:dependencies].include?(possible_dependency)
+          if !@specialty.is_dependent_on.to_a.include?(Specialty.find(possible_dependency)) 
+            @specialty.add_dependency(possible_dependency)
+          end
+        elsif 
+          if @specialty.is_dependent_on.to_a.include?(Specialty.find(possible_dependency))
+            @specialty.remove_dependency(possible_dependency)
+          end
+        end
+      end
+    end
+  end 
 end
