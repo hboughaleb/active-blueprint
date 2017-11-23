@@ -1,12 +1,12 @@
 <div class="main-container">
   <div class="row">
     <div class="col-xs-12 head-section">
-      <h1> <%= @specialty.name %>  <%= link_to "", edit_project_specialty_path(@project, @specialty), class:"fa fa-pencil" %> <%= link_to "", project_specialty_path(@specialty), class:'fa fa-trash', method: :delete %></h1>
+      <h1> <%= link_to "", project_path(@project), class:"fa fa-chevron-left" %> <%=  @specialty.name.upcase %>  <%= link_to "", edit_project_specialty_path(@project, @specialty), class:"fa fa-pencil" %> <%= link_to "", project_specialty_path(@specialty), class:'fa fa-trash', method: :delete %> </h1>
       <p>
         <span><%= @specialty.start.strftime("%d %b %Y ") %></span> -
         <span><%= @specialty.finish.strftime("%d %b %Y ") %></span> -
         <% @specialty.is_dependent_on.each do |d| %>
-          <span> Dependent of <%= d.name %></span>
+          <span> Dependent of <%= link_to d.name, project_specialty_path(@project, d) %></span>
         <% end %>
       </p>
       <div class="progress">
@@ -16,11 +16,11 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-3">
+  <div class="row project-wrapper">
+    <div class="col-xs-12 col-sm-3 project-content-wrapper">
       <%= render "shared/navcard_tasks" %>
     </div>
-    <div class="col-xs-12 col-sm-9">
+    <div class="col-xs-12 col-sm-9 project-content-wrapper">
       <div class="gantt-container" style="overflow: scroll;">
         <svg id="gantt"></svg>
       </div>
