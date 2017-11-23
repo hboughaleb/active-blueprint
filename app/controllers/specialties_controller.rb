@@ -66,8 +66,10 @@ class SpecialtiesController < ApplicationController
   def manage_dependencies
     params[:possible_dependencies].keys.each do |possible_dependency|
       if params[:dependencies] && params[:dependencies].include?(possible_dependency)
-        @specialty.add_dependency(possible_dependency)
-      else
+        if !@specialty.is_dependent_on.to_a.include?(Specialty.find(possible_dependency)) 
+          @specialty.add_dependency(possible_dependency)
+        end
+      elsif 
         if @specialty.is_dependent_on.to_a.include?(Specialty.find(possible_dependency))
           @specialty.remove_dependency(possible_dependency)
         end
