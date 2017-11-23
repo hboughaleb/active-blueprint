@@ -1,33 +1,28 @@
-<div class="full-wrapper ">
+<div class="main-container">
   <div class="row">
-    <div class="col-xs-3">
-      <div class="sidebar-wrapper">
-        <div class="sidebar-nav">
-            <%= render "shared/navcard_tasks" %>
+    <div class="col-xs-12 head-section">
+      <h1> <%= @specialty.name %>  <%= link_to "", edit_project_specialty_path(@project, @specialty), class:"fa fa-pencil" %> <%= link_to "", project_specialty_path(@specialty), class:'fa fa-trash', method: :delete %></h1>
+      <p>
+        <span><%= @specialty.start.strftime("%d %b %Y ") %></span> -
+        <span><%= @specialty.finish.strftime("%d %b %Y ") %></span> -
+        <% @specialty.is_dependent_on.each do |d| %>
+          <span> Dependent of <%= d.name %></span>
+        <% end %>
+      </p>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: <%= @specialty.progress %>;">
+          70%
         </div>
       </div>
     </div>
-    <div class="col-xs-9">
-      <div class="page-content-wrapper">
-        <div class="page-content">
-          <div class="container">
-            <div class="section">
-              <h3><%= @specialty.name %> <%= link_to "", edit_project_specialty_path(@project, @specialty), class:"fa fa-pencil" %> <%= link_to "", project_specialty_path(@specialty), class:'fa fa-trash', method: :delete %></h3>
-              <p><%= @specialty.dependencies %></p>
-              <p><%= @specialty.custom_class %></p>
-              <p><%= @specialty.start.strftime("%Y-%m-%d") %></p>
-              <p><%= @specialty.finish.strftime("%Y-%m-%d") %></p>
-              <p><%= @specialty.progress %></p>
-              <% @specialty.users.each do |u| %>
-                <p><%= u.username %></p>
-              <% end %>
-            </div>
-            <h2>Specialties  <%= link_to "", new_project_specialty_task_path(@project, @specialty), class:"fa fa-plus" %></h2>
-            <div class="gantt-container" style="overflow: scroll;">
-              <svg id="gantt"></svg>
-            </div>
-          </div>
-        </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <%= render "shared/navcard_tasks" %>
+    </div>
+    <div class="col-xs-12 col-sm-9">
+      <div class="gantt-container" style="overflow: scroll;">
+        <svg id="gantt"></svg>
       </div>
     </div>
   </div>
