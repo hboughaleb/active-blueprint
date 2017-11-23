@@ -8,7 +8,8 @@
   </div>
   <div class="container">
     <div class="row">
-      <% @current_user.projects.each do |project| %>
+      <% unless @projects.empty? %>
+        <% @projects.each do |project| %>
         <div class="col-xs-12 col-sm-4">
           <%= link_to project_path(project) do %>
           <div class="card project-card" style="background-image: url('<%= cl_image_path project.cover.path rescue "" %>')">
@@ -25,7 +26,9 @@
             </div>
           <% end %>
         </div>
+        <% end %>
       <% end %>
+
     </div>
   </div>
   <div class="container" style="text-align: center">
@@ -47,10 +50,7 @@
               <h2> <%= task.name %> </h2>
               <p> <%= task.specialty.project.title %> </p>
             </div>
-
-            <% task.specialty.project.contributors.each do |user| %>
-              <%= cl_image_tag user.photo.path, class: "avatar" rescue "" %>
-            <% end %>
+            <%= render 'shared/contributor_list', tasks: [task] %>
             </div>
           <% end %>
         </div>
