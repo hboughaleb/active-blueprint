@@ -18,7 +18,8 @@ class SpecialtiesController < ApplicationController
   end
 
   def gantt_update
-    if current_user == Project.find(params[:project_id]).user
+    project = Project.find(params[:project_id])
+    if current_user == project.user
       Specialty.update_from_params(params)
     end
   end
