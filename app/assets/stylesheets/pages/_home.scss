@@ -95,3 +95,96 @@
 .material-icons {
   font-size: 60px;
 }
+
+.reviews-product {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  margin: 10px 0;
+}
+
+/* Body design */
+.reviews-product-body {
+  flex: 1 1 auto;
+}
+.reviews-product-body h3 {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+}
+.reviews-product-body p {
+  font-weight: lighter;
+  color: #999999;
+  margin-bottom: 0;
+}
+
+/* Product image */
+.reviews-product-image {
+  height: 100px;
+  border-radius: 10px;
+  margin-right: 20px;
+  width: 150px;
+  background-repeat: no-repeat;
+}
+
+/* Upvote design */
+.reviews-product-upvote {
+  padding-right: 20px;
+  text-align: center;
+  transition: all 0.15s ease;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+}
+.reviews-product-count {
+  margin: 2px 0 0;
+}
+.reviews-product-arrow {
+  transition: all 0.15s ease;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid transparent;
+  border-bottom: 9px solid black;
+  border-radius: 2px;
+  margin: auto;
+}
+
+/* Controls design */
+.reviews-product-controls {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0px;
+}
+.reviews-product-controls a {
+  padding: 0 20px;
+  font-size: 17px;
+  color: #f7f2f2;
+}
+.reviews-product-controls a:hover {
+  color: #D3473C !important
+}
+.reviews-product-controls-hidden a {
+  color: transparent;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  border-color: transparent;
+}
+
+/* Hover effects */
+.reviews-product:hover {
+  background: #f7f7fa;
+  cursor: pointer;
+}
+.reviews-product-upvote:hover {
+  color: #5898f1;
+  cursor: pointer;
+}
+.reviews-product:hover .product-upvote { transform: scale(1.2) }
+.reviews-product:hover .product-controls-hidden a { color: #E6E6E6 }
+.reviews-product-upvote:hover .product-arrow { border-bottom: 9px solid #5898f1 }
+
