@@ -20,6 +20,7 @@ class TasksController < ApplicationController
   end
 
   def create        # POST /tasks
+    manage_dependencies
     @task = Task.new(task_params)
     # @task.user = current_user
     @task.specialty = @specialty
@@ -40,8 +41,9 @@ class TasksController < ApplicationController
   end
 
   def update        # PATCH /tasks/:id
+    manage_dependencies
     if @task.update(task_params)
-      redirect_to project_specialty_task_path(@project, @specialty, @task)
+      redirect_to project_specialty_path(@project, @specialty)
     else
       render :edit
     end
@@ -67,7 +69,20 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :description, :photo, :budget, :priority, :start, :finish, :status, :user_id, :specialty_id, :project_id)
+    params.require(:task).permit(:progress, :name, :description, :budget, :priority, :start, :finish, :status, :user_id, :specialty_id, :project_id)
   end
 
+  def manage_dependencies
+    params[:possible_dependencies].keys.each do |possible_dependency|
+      if params[:dependencies] && params[:dependencies].include?(possible_dependency)
+        if !@task.is_dependent_on.to_a.include?(Task.find(possible_dependency)) 
+          @task.add_dependency(possible_dependency)
+        end
+      elsif 
+        if @task.is_dependent_on.to_a.include?(Task.find(possible_dependency))
+          @task.remove_dependency(possible_dependency)
+        end
+      end
+    end
+  end
 end
