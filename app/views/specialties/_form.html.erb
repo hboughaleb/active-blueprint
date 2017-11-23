@@ -20,9 +20,14 @@
           <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
               Add Dependencies
           </button>
-          <ul class="dropdown-menu", id="dependency-dropdown-menu">
+          <ul class="dropdown-menu" id="dependency-dropdown-menu">
             <% Specialty.where("project_id = ? AND id != ?", @project.id, (@specialty.id || 9999)).each do |specialty| %>
-              <li><a href="#" class="small" data-value="<%= specialty.id %>" tabIndex="-1"><input name="<%= specialty.id %>" type="checkbox"/> <%= specialty.name %></a></li>
+              <li>
+                <a href="#" class="small" data-value="<%= specialty.id %>" tabIndex="-1">
+                  <input name="possible_dependencies[<%= specialty.id %>]" type="hidden" value="present">
+                  <input name="dependencies[<%= specialty.id %>]" type="checkbox" <%= "checked" if @specialty.is_dependent_on.to_a.include?(specialty) %> /> <%= specialty.name %>
+                </a>
+              </li>
             <% end %>
           </ul>
         </div>
