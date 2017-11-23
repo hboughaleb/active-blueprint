@@ -12,7 +12,6 @@
         </div>
         <script>document.querySelector(".progress-bar").style.width = "<%= @project.total_progress %>%";</script>
       </div>
-      </div>
     </div>
   </div>
   <div class="row">
@@ -31,6 +30,7 @@
     </div>
   </div>
 </div>
+
 
 <%= content_for(:after_js) do %>
   <script>

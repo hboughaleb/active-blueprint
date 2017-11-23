@@ -15,8 +15,10 @@ class Project < ApplicationRecord
 
   def total_progress
     total = 0;
-    specialties.each { |specialty| total += specialty.progress }
-    total / specialties.length
+    if specialties.any?
+      specialties.each { |specialty| total += specialty.progress }
+      total / specialties.length
+    end
   end
 
   PROJECT_TEMPLATE = {
