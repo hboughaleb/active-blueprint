@@ -1,7 +1,10 @@
 <h1>TASK NAME : <%= @task.name %></h1>
 
 <p> Specialty: <%= @task.specialty.name %></p>
-<p><%= @task.user.username %></p>
+<% unless @task.user.nil?  %>
+  <p><%= @task.user.username %></p>
+<% end %>
+
 <p><%= @task.priority %></p>
 <p><%= @task.description %></p>
 <p><%= @task.budget %></p>
