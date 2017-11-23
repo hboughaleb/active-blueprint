@@ -22,7 +22,7 @@
                 <p><%= u.username %></p>
               <% end %>
             </div>
-            <h2>Specialties  <%= link_to "", new_project_specialty_task_path(@project, @specialty), class:"fa fa-plus" %></h2>
+            <h2>Tasks <%= link_to "", new_project_specialty_task_path(@project, @specialty), class:"fa fa-plus" %></h2>
             <div class="gantt-container" style="overflow: scroll;">
               <svg id="gantt"></svg>
             </div>

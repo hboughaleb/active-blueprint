@@ -10,21 +10,27 @@
   <% end %>
   <div class="form-inputs">
     <%= f.input :specialty, input_html: { placeholder: "plumbing, roofing, painting...", class: 'form-control' } %>
-    <%= f.input :priority, input_html: { placeholder: "1, 2 , 3", class: 'form-control' } %>
-    <%= f.input :name, input_html: { placeholder: " Name it !", class: 'form-control' } %>
+    <div class="doublefields">
+      <%= f.input :priority, input_html: { placeholder: "1, 2 , 3", class: 'form-control' } %>
+      <%= f.input :budget, input_html: { placeholder: "", class: 'form-control' } %>
+    </div>
+    <%= f.input :name, input_html: { placeholder: "What is your task?", class: 'form-control' } %>
     <%= f.input :description, input_html: { placeholder: "be specific...", class: 'form-control' } %>
-    <%= f.input :budget, input_html: { placeholder: "", class: 'form-control' } %>
     <%= f.input :status, collection: [ "Stand by", "Pending Ok", "Pending Blocked", "Closed", "Adandonned", "Completed"], input_html: {  class: 'form-control' } %>
     <%= f.input :progress, input_html: { placeholder: " 35 (for 35%) -->minimum: 5  ", class: 'form-control' } %>
-            <%= f.input :start, as: :string, input_html: { id: "start_date",placeholder: "", class: 'form-control datepicker' } %>
-        <%= f.input :finish, as: :string, input_html: { id: "end_date", placeholder: "", class: 'form-control datepicker' } %>
-    <%= f.select :user, options_for_select(User.all.to_a.map { |obj| [obj['username'], obj['id']] }) %>
-  </div>
-  <div class="form-actions">
-    <%= f.submit class: "btn btn-success" %>
-  </div>
-<% end %>
-
+    <div class="doublefields">
+      <%= f.input :start, as: :string, input_html: { id: "start_date",placeholder: "", class: 'form-control datepicker' } %>
+      <%= f.input :finish, as: :string, input_html: { id: "end_date", placeholder: "", class: 'form-control datepicker' } %>
+    </div>
+    <div class="doublefields">
+      <%= f.select :user, options_for_select(User.all.to_a.map { |obj| [obj['username'], obj['id']] }), id: 'user-toggle' %>
+      <%= f.input :photo, as: :attachinary %>
+    </div>
+    <div class="form-actions">
+      <%= f.submit class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>
 <% content_for(:after_js) do %>
   <script type="text/javascript">
     $(document).ready(function(){

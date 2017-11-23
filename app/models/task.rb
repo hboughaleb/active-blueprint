@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
 
+  has_attachment :photo
 
   include Gantt::GanttInstanceMethods
   extend Gantt::GanttClassMethods
