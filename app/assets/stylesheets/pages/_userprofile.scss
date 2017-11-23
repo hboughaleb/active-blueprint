@@ -1,9 +1,12 @@
 body {
   margin: 0;
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-family: $body-font, "Helvetica Neue", Arial, sans-serif;
 }
 h1, h2, h3 {
-  font-family: Raleway, Helvetica, sans-serif;
+  font-family: $bold-font, Helvetica, sans-serif;
+}
+p{
+  font-family: $regular-font, Helvetica, sans-serif;
 }
 a {
   text-decoration: none;

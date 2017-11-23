@@ -18,13 +18,13 @@ class Project < ApplicationRecord
 
     villa: {
       specialties:{
-        carpenter: {
-          name: "Carpenter",
+        carpenting: {
+          name: "Carpentry",
           start: 10,
           finish: 40,
           percentage_budget: 20,
           dependencies: "",
-          custom_class: "carpenter-class",
+          custom_class: "carpenting-class",
           tasks: {
             task1: {
               name: "Phase 1",
