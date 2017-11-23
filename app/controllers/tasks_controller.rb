@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :destroy]
-  before_action :set_specialty, only: [:create, :new, :show, :edit, :destroy]
-  before_action :set_project, except: [ :full_index]
+  before_action :set_task, only: [:show, :edit, :destroy, :update]
+  before_action :set_specialty, only: [:create, :new, :show, :edit, :update, :destroy]
+  before_action :set_project, except: [:full_index]
+
   def index         # GET /tasks
     @tasks = Task.all
   end
@@ -40,7 +41,7 @@ class TasksController < ApplicationController
 
   def update        # PATCH /tasks/:id
     if @task.update(task_params)
-      redirect_to project_specialty_task_path(@specialty, @task)
+      redirect_to project_specialty_task_path(@project, @specialty, @task)
     else
       render :edit
     end

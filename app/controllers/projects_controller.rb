@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
       unless checked_specialties == []
         specialties = project_template[params["generate"]["type"].to_sym][:specialties]
         checked_specialties.each do |checked_specialty|
-          specialty = specialties[checked_specialty.to_sym]
+          specialty = specialties[checked_specialty.downcase.to_sym]
           s = Specialty.create(name: specialty[:name], budget: (budget * specialty[:percentage_budget])/100 ,
             start:  @project.start_date + specialty[:start], finish: @project.end_date - specialty[:finish],
             progress: 5, dependencies: specialty[:dependencies],

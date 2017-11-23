@@ -18,7 +18,7 @@ class Project < ApplicationRecord
 
     villa: {
       specialties:{
-        carpenting: {
+        carpentry: {
           name: "Carpentry",
           start: 10,
           finish: 40,
@@ -55,8 +55,8 @@ class Project < ApplicationRecord
             }
           }
         },
-        plumber: {
-          name: "Plumber",
+        plumbing: {
+          name: "Plumbing",
           start: 10,
           finish: 40,
           percentage_budget: 0,
@@ -96,8 +96,8 @@ class Project < ApplicationRecord
     },
     apartment: {
        specialties:{
-        carpenter: {
-          name: "Carpenter",
+        carpentry: {
+          name: "Carpentry",
           start: 10,
           finish: 40,
           percentage_budget: 0,
@@ -133,7 +133,7 @@ class Project < ApplicationRecord
             }
           }
         },
-        plumber: {
+        plumbing: {
           name: "Plumbing",
           start: 10,
           finish: 40,
