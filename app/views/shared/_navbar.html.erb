@@ -2,7 +2,7 @@
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png" %>
-    active blueprint
+    <span style="padding-left: 10px;">Active Blueprint</span>
   <% end %>
 
   <!-- Right Navigation -->
@@ -11,8 +11,8 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "dashboard", projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "start a project", new_project_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "DASHBOARD", projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "NEW PROJECT", new_project_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
