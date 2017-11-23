@@ -17,6 +17,11 @@
     color: black;
     margin-bottom: 10px;
   }
+  .btn {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+  }
 }
 
 .generator {
@@ -50,7 +55,7 @@
   }
 }
 
-.new-project-form {
+.form-style {
   max-width: 650px;
   margin: 0 auto;
 }
@@ -71,3 +76,15 @@ abbr {
   }
 }
 
+.centered {
+
+  margin: 0 auto;
+  text-align: left;
+  width: 800px;
+  display: block;
+}
+
+.dropdown-menu {
+  background: #b7b7b7;
+  opacity: 1;
+}
