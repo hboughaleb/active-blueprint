@@ -1,7 +1,7 @@
 <% @specialty.tasks.each do |t| %>
   <div class="nav-card">
     <div class="card-title">
-      <h2><%= link_to "#{t.name}" , project_specialty_task_path( @project, @specialty, t) %></h2>
+      <h2><%= link_to "#{t.name}" , edit_project_specialty_task_path( @project, @specialty, t) %></h2>
       <p><%= t.start.strftime("%Y %b %d") %> - <%= t.finish.strftime("%Y %b %d") %></p>
     </div>
     <div class="card-avatars">

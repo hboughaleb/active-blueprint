@@ -41,7 +41,7 @@ class TasksController < ApplicationController
 
   def update        # PATCH /tasks/:id
     if @task.update(task_params)
-      redirect_to project_specialty_task_path(@project, @specialty, @task)
+      redirect_to project_specialty_path(@project, @specialty)
     else
       render :edit
     end
@@ -67,7 +67,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :description, :budget, :priority, :start, :finish, :status, :user_id, :specialty_id, :project_id)
+    params.require(:task).permit(:progress, :name, :description, :budget, :priority, :start, :finish, :status, :user_id, :specialty_id, :project_id)
   end
 
 end
