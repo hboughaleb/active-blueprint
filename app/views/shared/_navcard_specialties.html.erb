@@ -1,11 +1,31 @@
 <% @specialties.each do |s| %>
-  <div class="card">
-    <div class="card-description">
-      <p><%= link_to "#{s.name}" , project_specialty_path( @project, s) %></p>
-      <p><%= s.start.strftime("%Y-%m-%d") %> - <%= s.finish.strftime("%Y-%m-%d") %></p>
+  <div class="nav-card">
+    <div class="card-title">
+      <h2><%= link_to "#{s.name.upcase}", project_specialty_path(@project,s) %></h2>
+      <p><%= s.start.strftime("%Y %b %d") %>  <%= s.finish.strftime("%Y %b %d") %></p>
     </div>
-    <img class="card-user" src="#">
-    <a class="card-link" href="#" ></a>
+    <div class="card-avatars">
+      <ul class="list-inline">
+        <% s.tasks.each do |task| %>
+        <li>
+          <% unless task.user.nil? %>
+            <% if task.user.facebook_picture_url? %>
+              <% avatar_url = task.user.facebook_picture_url || "http://placehold.it/30x30" %>
+            <% elsif  task.user.photo.nil? %>
+              <% avatar_url = "http://placehold.it/30x30" %>
+            <% else %>
+              <%= avatar_url = cl_image_tag task.user.photo.path, height: 30, width: 30, :crop=>"fill" %>
+            <% end %>
+            <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% end %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 <% end %>
+ <div class="add-card">
+  <span><%= link_to "", new_project_specialty_path(@project), class:"fa fa-plus" %></span>
+</div>
+
 

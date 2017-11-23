@@ -1,6 +1,8 @@
 GIT
   remote: git://github.com/Martin-Alexander/gantt.git
-  revision: 8504af712a8b4432e3090053797c18500fc19707
+
+  revision: 1dfb0497ff2f59fa2ca7d7427cbbf0b6ca04fe7c
+
   specs:
     gantt (0.1.0)
       rails (~> 5.1.4)

@@ -8,6 +8,6 @@ class Specialty < ApplicationRecord
 
   has_many :users, through: :tasks
 
-  SPECIALTIES = ['plumber', 'electrician', 'carpenter', 'mason', 'roofer']
+  SPECIALTIES = ['Preparation','Structural Systems / Masonry','Plumbing', 'HVAC', 'Electricity', 'Carpentry', 'Tiling', 'Windows', 'Roofing']
 
 end

@@ -1,32 +1,25 @@
-<div class="full-wrapper ">
+<div class="main-container">
   <div class="row">
-    <div class="col-xs-3">
-      <div class="sidebar-wrapper">
-        <div class="sidebar-nav">
-            <%= render "shared/navcard_specialties" %>
+    <div class="col-xs-12 head-section">
+      <h1> <%= @project.title.upcase %> <%= link_to "", edit_project_path(@project), class:"fa fa-pencil" %> <%= link_to "", @project, class:'fa fa-trash', method: :delete %></h1>
+      <p>
+        <span><%= @project.start_date.strftime("%Y %b %d") %></span> to
+        <span><%= @project.end_date.strftime("%Y %b %d") %></span>
+      </p>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+          70%
         </div>
       </div>
     </div>
-    <div class="col-xs-9">
-      <div class="page-content-wrapper">
-        <div class="page-content">
-          <div class="container">
-            <div class="section">
-              <h3><%= @project.title %> <%= link_to "", edit_project_path(@project), class:"fa fa-pencil" %> <%= link_to "", @project, class:'fa fa-trash', method: :delete %></h3>
-              <p><%= @project.description %></p>
-              <p><%= @project.projected_budget %></p>
-              <p><%= @project.address %></p>
-              <p><%= @project.start_date.strftime("%Y-%m-%d") %></p>
-              <p><%= @project.end_date.strftime("%Y-%m-%d") %></p>
-              <p><%= @project.status %></p>
-              <div><a href="#" class="btn-treehouse">message my team</a></div>
-            </div>
-            <h2>Specialties  <%= link_to "", new_project_specialty_path(@project), class:"fa fa-plus" %></h2>
-            <div class="gantt-container" style="overflow: scroll;">
-              <svg id="gantt"></svg>
-            </div>
-          </div>
-        </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <%= render "shared/navcard_specialties" %>
+    </div>
+    <div class="col-xs-12 col-sm-9">
+      <div class="gantt-container" style="overflow: scroll;">
+        <svg id="gantt"></svg>
       </div>
     </div>
   </div>
@@ -42,4 +35,5 @@
 <%= form_tag specialties_gantt_update_path(@project), method: :patch, remote: true, id: "hidden_gantt_form" do %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <%= hidden_field_tag :tasks, "", id: "gnatt_tasks_input"  %>
+  <%= hidden_field_tag :task_changed, "", id: "task_changed_id"  %>
 <% end %>
