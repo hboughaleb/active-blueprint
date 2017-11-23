@@ -4,13 +4,28 @@
   min-height: calc(100vh - 170px);
 }
 
-.head-section h1 {
-  text-align: left;
-  font-family: $light-font;
-  font-style: italic;
-  letter-spacing: 0.75px;
-  margin-bottom: 10px;
+.head-section {
+  h1 {
+    text-align: left;
+    font-style: italic;
+    margin-bottom: 10px;
+    font-family: $light-font;
+    letter-spacing: 0.75px;
+  }
+  p {
+    text-align: left;
+    font-family: $light-font;
+  }
 }
+
+#date{
+  font-family: $light-font;
+}
+
+#bar{
+  font-family: $light-font;
+}
+
 .progress {
   width: 310px;
   margin-bottom: 35px;
@@ -22,4 +37,13 @@
   width:70%;
   background-color: #9DDCD4;
   border-bottom: none;
+}
+
+.project-wrapper{
+  height: 100vh;
+}
+
+.project-content-wrapper{
+  height: 100%;
+  overflow-y: scroll;
 }
