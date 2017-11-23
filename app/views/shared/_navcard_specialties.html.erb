@@ -5,7 +5,22 @@
       <p><%= s.start.strftime("%Y %b %d") %> - <%= s.finish.strftime("%Y %b %d") %></p>
     </div>
     <div class="card-avatars">
-      <%= render 'shared/contributor_list', tasks: s.tasks %>
+      <ul class="list-inline">
+        <% s.tasks.each do |task| %>
+        <li>
+          <% unless task.user.nil? %>
+            <% if task.user.facebook_picture_url? %>
+              <% avatar_url = task.user.facebook_picture_url || "http://placehold.it/30x30" %>
+            <% elsif  task.user.photo.nil? %>
+              <% avatar_url = "http://placehold.it/30x30" %>
+            <% else %>
+              <%= avatar_url = cl_image_tag task.user.photo.path, height: 30, width: 30, :crop=>"fill" %>
+            <% end %>
+            <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% end %>
+        </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 <% end %>

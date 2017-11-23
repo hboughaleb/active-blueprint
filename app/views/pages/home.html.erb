@@ -1,59 +1,78 @@
 <%= render "shared/banner" %>
 
-<div class="container">
-  <div class="row">
-    <div class="message">
-      <div class="message-name">
-        <h3><i class="large material-icons">access_alarm</i></h3>
-      </div>
-      <div class="message-body">
-        <p> get the job done in fewer clicks — like a boss </p>
-      </div>
-      <div class="message-name">
-        <h3> <i class="large material-icons">cloud_done</i> </h3>
-      </div>
+  <div class="banner-content">
+    <div class="text-center" style="color: black" width="100">
+      <h3> harmony </h3>
+      <h1> success borne of communication, clear goals, and working </h1>
+      <p> — <i>together</i>.— </p>
     </div>
   </div>
-  <div class="row">
-    <div class="message">
-      <div class="message-name">
-        <h3><i class="large material-icons">weekend</i></h3>
-      </div>
-      <div class="message-body">
-        <p> easy peasy. let the algorithm learn your style </p>
-      </div>
-      <div class="message-name">
-        <h3><i class="large material-icons">thumb_up</i></h3>
+
+  <div class="container">
+    <div class="row">
+      <div class="message">
+        <div class="message-name">
+          <i class="material-icons">access_alarm</i>
+        </div>
+        <div class="message-body">
+          <p> nowadays, we hear <strong>efficiency</strong> <i>comes standard</i></p>
+          <p> it's in our day-to-day, on the job, and at home
+          <p><strong> get the job done</strong> in fewer clicks — like a boss </p>
+        </div>
+        <div class="message-name">
+          <i class="material-icons">cloud_done</i>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="message">
-      <div class="message-name">
-        <h3><i class="large material-icons">message</i></h3>
+    <div class="row">
+      <div class="message">
+        <div class="message-name">
+          <i class="material-icons">weekend</i>
+        </div>
+        <div class="message-body">
+          <p> easy peasy. <strong>so easy</strong> a computer could do it </p>
+          <p> but really, go ahead and do your thing</p>
+          <p> <strong>our algorithm learns</strong> your style and work flow </p>
+        </div>
+        <div class="message-name">
+          <i class="material-icons">thumb_up</i>
+        </div>
       </div>
-      <div class="message-body">
-        <p> transparency: collaborate and stay in the know </p>
-      </div>
-      <div class="message-name">
-        <h3><i class="large material-icons">people_outline</i></h3>
+    </div>
+    <div class="row">
+      <div class="message">
+        <div class="message-name">
+          <i class="material-icons">message</i>
+        </div>
+        <div class="message-body">
+          <p><strong> R.I.P. </strong></p>
+          <p> <strong>Mike Roe Mannah-Jing</strong>* </p>
+          <p> collaborate, communicate, and stay in the know </p>
+          <p> (*Get it? <i>MicRoManaging?!</i> genius. we know. rest in peace, Mike.)</p>
+        </div>
+        <div class="message-name">
+          <i class="material-icons">people_outline</i>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="banner-content">
     <div class="text-center" style="color: black" width="100">
-      <h1> Tried and True </h1>
-      <h3> we're not shy. check out the buzz: </h3>
+      <h3> tried-and-true reviews | check out the buzz: </h3>
+      <p> — you guys aren't shy. alas, neither are we — </p>
     </div>
   </div>
-  <div class="container" style="background-color: #9697AA">
-    <div class="product">
-      <div class='product-upvote'></div>
+
+  <!-- REVIEWS TABLE (FAKE but keep code in case someone wants to utilize it later) -->
+
+  <div class="container" style="background-color: #f7f2f2">
+    <div class="reviews-product">
+      <div class='reviews-product-upvote'></div>
       <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="product-image"/>
-      <div class='product-body'>
-        <h3>Fantastic app!</h3>
-        <p>Gets the job done day in and day out!</p>
+      <div class='reviews-product-body'>
+        <h3>Dan, Contractor</h3>
+        <p>Fantastic app! Gets it done day in, day out!</p>
       </div>
       <ul class="list-inline product-controls">
         <li><a href=""><i class="fa fa-heart"></i></a>36</li>
@@ -61,12 +80,12 @@
         <li><a href=""><i class="fa fa-star"></i></a>5</li>
       </ul>
     </div>
-    <div class="product">
-      <div class='product-upvote'></div>
+    <div class="reviews-product">
+      <div class='reviews-product-upvote'></div>
       <img src='https://kitt.lewagon.com/placeholder/users/ssaunier' class="product-image"/>
-      <div class='product-body'>
-        <h3>Hands down, the best...</h3>
-        <p>Wish I knew about this sooner!</p>
+      <div class='reviews-product-body'>
+        <h3>Monique, Interior Design</h3>
+        <p>So many clients, too little time—I'm sold—only wish I had known about this sooner!</p>
       </div>
       <ul class="list-inline product-controls">
         <li><a href=""><i class="fa fa-heart"></i></a>45</li>
@@ -74,12 +93,12 @@
         <li><a href=""><i class="fa fa-star"></i></a>5</li>
       </ul>
     </div>
-    <div class="product">
-      <div class='product-upvote'></div>
+    <div class="reviews-product">
+      <div class='reviews-product-upvote'></div>
       <img src='https://kitt.lewagon.com/placeholder/users/eschults' class="product-image"/>
-      <div class='product-body'>
-        <h3>Always with me</h3>
-        <p>In the car, office, with clients...</p>
+      <div class='reviews-product-body'>
+        <h3>Sev, Homeowner</h3>
+        <p>When wondering where we are on things, chances are #<i>Active</i>Blueprint already has the scoop. Plus, one click makes the guys on my project a call or text away. Sawoosh! </p>
       </div>
       <ul class="list-inline product-controls">
         <li><a href=""><i class="fa fa-heart"></i></a>98</li>
@@ -87,12 +106,12 @@
         <li><a href=""><i class="fa fa-star"></i></a>5</li>
       </ul>
     </div>
-    <div class="product">
-      <div class='product-upvote'></div>
+    <div class="reviews-product">
+      <div class='reviews-product-upvote'></div>
       <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="product-image"/>
-      <div class='product-body'>
-        <h3>Instant winning</h3>
-        <p>Has my business for life. Closing deals...</p>
+      <div class='reviews-product-body'>
+        <h3>Rob, HVAC</h3>
+        <p>Has my business for life... </p>
       </div>
         <ul class="list-inline product-controls">
           <li><a href=""><i class="fa fa-heart"></i></a>23</li>
