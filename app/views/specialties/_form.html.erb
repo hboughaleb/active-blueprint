@@ -11,7 +11,6 @@
         <% end %>
 
       <div class="form-inputs">
-        <h1>Add a Specialty</h1>
         <%= f.input :name, input_html: { placeholder: "Plumbing, painting, electricity...", class: 'form-control' } %>
         <%= f.input :progress, input_html: { placeholder: " 35 (for 35%)  ", class: 'form-control' } %>
         <%= f.input :custom_class, collection: [ "blue", "red", "green", "orange", "grey", "brown", "violet", "yellow", "pink"], input_html: {  class: 'form-control' } %>
