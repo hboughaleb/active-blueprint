@@ -51,6 +51,9 @@
               <p> <%= task.specialty.project.title %> </p>
             </div>
             <%= render 'shared/contributor_list', tasks: [task] %>
+            <% task.specialty.project.contributors.each do |user| %>
+              <%= cl_image_tag user.photo.path, class: "avatar" rescue "" %>
+            <% end %>
             </div>
           <% end %>
         </div>
