@@ -23,6 +23,11 @@
       <div class="gantt-container" style="overflow: scroll;">
         <svg id="gantt"></svg>
       </div>
+      <div class="btn-group mt-1 mx-auto">
+        <button id="gantt-day" type="button" class="gantt-period btn btn-sm btn-secondary">Day</button>
+        <button id="gantt-week" type="button" class="gantt-period btn btn-sm btn-secondary">Week</button>
+        <button id="gantt-month" type="button" class="gantt-period btn btn-sm btn-secondary">Month</button>
+      </div>    
     </div>
   </div>
 </div>
@@ -31,6 +36,16 @@
   <script>
   var railsGantt = new RailsGantt("#gantt", <%= raw JSON.generate(@specialties.as_gantt_tasks) %>);
   railsGantt.gantt.change_view_mode('Month')
+
+  document.querySelectorAll(".gantt-period").forEach(function(button) {
+    button.addEventListener("click", function(event) {
+      railsGantt.gantt.change_view_mode(event.currentTarget.innerHTML);
+      document.querySelectorAll(".gantt-period").forEach(function(button) {
+        button.classList.remove("active");
+      });
+      event.currentTarget.classList.add("active");
+    });
+  });
 </script>
 <% end %>
 
