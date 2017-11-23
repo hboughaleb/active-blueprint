@@ -3,7 +3,7 @@
     <div class="profile-header-wrapper" style="background-image: url('<%= image_path 'project-show.png' %>');">
       <div class="container profile-header-container text-center">
         <div class="profile-header-infos">
-          <%= @user.photo ? cl_image_tag(@user.photo.path) : image_tag(@user.facebook_picture_url) %>
+          <%= @user.photo ? cl_image_tag(@user.photo.path) : image_tag(@user.facebook_picture_url) rescue "" %>
           <h1><%=@user.first_name%> <%=@user.last_name%></h1>
           <h2><%=@user.email%></h2>
         </div>
@@ -45,7 +45,7 @@
         </div>
         <ul class="list-inline product-controls">
           <% project.contributors.each do |user| %>
-          <%= cl_image_tag user.photo.path, class: "avatar"%>
+          <%= cl_image_tag user.photo.path, class: "avatar" rescue "" %>
         <% end %>
         </ul>
       </div>
