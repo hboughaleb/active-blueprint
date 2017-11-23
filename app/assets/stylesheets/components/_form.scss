@@ -1,6 +1,6 @@
 .form-inputs {
   background: white;
-  margin-top: 20px;
+  //margin-top: 20px;
   padding: 20px;
   border-radius: 5px;
   h2 {
@@ -29,7 +29,7 @@
 .generator {
   border-color: #666666;;
   padding: 10px;
-  margin: 5px;
+  //margin: 5px;
   border: 1px solid #ccc;
   border-radius: 2px;
 }
@@ -63,7 +63,7 @@
 }
 
 .form-actions {
-  margin: 20px;
+  //margin: 20px;
 }
 
 abbr {
@@ -76,6 +76,10 @@ abbr {
   div {
     width: 48%;
   }
+}
+
+.project_address{
+  margin-top: 10px;
 }
 
 .centered {

@@ -31,7 +31,7 @@
 
     <div class="doublefields">
       <%= f.input :status, collection: [ "Stand by", "Pending Ok", "Pending Blocked", "Closed", "Adandonned", "Completed"], input_html: {  class: 'form-control' } %>
-      <%= f.input :cover, as: :attachinary %>
+      <%# f.input :cover, as: :attachinary %>
     </div>
     <div class="form-actions">
       <%= f.submit class: "btn btn-success" %>
@@ -42,10 +42,11 @@
 
 <% content_for(:after_js) do %>
   <script type="text/javascript">
-  $(document).ready(function(){
-      $('.datepicker').datepicker({
-        format: 'dd/mm/yyyy'
-    });
+    $(document).ready(function(){
+        $('.datepicker').datepicker({
+          format: 'dd/mm/yyyy'
+      });
     });
   </script>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
 <% end %>
