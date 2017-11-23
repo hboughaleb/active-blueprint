@@ -20,8 +20,8 @@ class TasksController < ApplicationController
   end
 
   def create        # POST /tasks
-    manage_dependencies
     @task = Task.new(task_params)
+    manage_dependencies
     # @task.user = current_user
     @task.specialty = @specialty
     if @task.save!
@@ -73,14 +73,16 @@ class TasksController < ApplicationController
   end
 
   def manage_dependencies
-    params[:possible_dependencies].keys.each do |possible_dependency|
-      if params[:dependencies] && params[:dependencies].include?(possible_dependency)
-        if !@task.is_dependent_on.to_a.include?(Task.find(possible_dependency)) 
-          @task.add_dependency(possible_dependency)
-        end
-      elsif 
-        if @task.is_dependent_on.to_a.include?(Task.find(possible_dependency))
-          @task.remove_dependency(possible_dependency)
+    if params[:possible_dependencies] 
+      params[:possible_dependencies].keys.each do |possible_dependency|
+        if params[:dependencies] && params[:dependencies].include?(possible_dependency)
+          if !@task.is_dependent_on.to_a.include?(Task.find(possible_dependency)) 
+            @task.add_dependency(possible_dependency)
+          end
+        elsif 
+          if @task.is_dependent_on.to_a.include?(Task.find(possible_dependency))
+            @task.remove_dependency(possible_dependency)
+          end
         end
       end
     end

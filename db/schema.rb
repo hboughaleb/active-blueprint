@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121191924) do
+ActiveRecord::Schema.define(version: 20171123210239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20171121191924) do
     t.datetime "start"
     t.datetime "finish"
     t.integer "progress"
-    t.string "dependencies"
+    t.string "dependencies", default: ""
     t.string "custom_class"
     t.integer "project_id"
     t.datetime "created_at", null: false
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20171121191924) do
     t.integer "budget"
     t.integer "priority"
     t.string "parent_task"
-    t.string "dependencies"
+    t.string "dependencies", default: ""
     t.integer "user_id"
     t.integer "progress"
     t.string "custom_class"

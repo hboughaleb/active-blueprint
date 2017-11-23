@@ -12,13 +12,14 @@
         </div>
         <script>document.querySelector(".progress-bar").style.width = "<%= @project.total_progress %>%";</script>
       </div>
+      </div>
     </div>
   </div>
-  <div class="row project-wrapper">
-    <div class="col-xs-12 col-sm-3 project-content-wrapper">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
       <%= render "shared/navcard_specialties" %>
     </div>
-    <div class="col-xs-12 col-sm-9 project-content-wrapper">
+    <div class="col-xs-12 col-sm-9">
       <div class="gantt-container" style="overflow: scroll;">
         <svg id="gantt"></svg>
       </div>
