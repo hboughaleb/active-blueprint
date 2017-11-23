@@ -25,7 +25,6 @@
   </div>
 </div>
 
-
 <%= content_for(:after_js) do %>
   <script>
   var railsGantt = new RailsGantt("#gantt", <%= raw JSON.generate(@specialties.as_gantt_tasks) %>);

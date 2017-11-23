@@ -23,7 +23,7 @@
     font-weight: bold;
     font-size: 24px;
     color: #666666;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
 .generator {
@@ -83,14 +83,13 @@ abbr {
 }
 
 .centered {
-
   margin: 0 auto;
   text-align: left;
   width: 800px;
   display: block;
 }
 
-.dropdown-menu {
+#dependency-dropdown-menu {
   background: #b7b7b7;
   opacity: 1;
 }
