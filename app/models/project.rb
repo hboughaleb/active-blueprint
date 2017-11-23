@@ -13,6 +13,9 @@ class Project < ApplicationRecord
   validates :address, presence: true
   validates :status, inclusion: { in: [ true, false ] }
 
+  def total_progress
+    
+  end
 
   PROJECT_TEMPLATE = {
 

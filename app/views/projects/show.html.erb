@@ -7,9 +7,10 @@
         <span><%= @project.end_date.strftime("%d %b %Y ") %></span>
       </p>
       <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: <%#= @specialty.progress %>;">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
           70%
         </div>
+        <script>document.querySelector(".progress-bar").style.width = "<%= @specialty.progress %>%";</script>
       </div>
     </div>
   </div>
