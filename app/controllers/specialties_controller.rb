@@ -46,7 +46,7 @@ class SpecialtiesController < ApplicationController
   end
 
   def show
-    @tasks = Specialty.find(params[:id]).tasks.as_gantt_tasks
+    @tasks = Specialty.find(params[:id]).tasks.order(:id).as_gantt_tasks
   end
 
   private
