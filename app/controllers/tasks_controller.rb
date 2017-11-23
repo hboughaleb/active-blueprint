@@ -20,8 +20,8 @@ class TasksController < ApplicationController
   end
 
   def create        # POST /tasks
-    manage_dependencies
     @task = Task.new(task_params)
+    manage_dependencies
     # @task.user = current_user
     @task.specialty = @specialty
     if @task.save!
