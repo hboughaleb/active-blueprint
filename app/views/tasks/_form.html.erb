@@ -30,7 +30,7 @@
       <%= f.input :finish, as: :string, input_html: { id: "end_date", placeholder: "", class: 'form-control datepicker' } %>
     </div>
     <div class="doublefields">
-      <%= f.select :user, options_for_select(User.all.to_a.map { |obj| [obj['username'], obj['id']] }), id: 'user-toggle' %>
+      <%= f.select :user_id, options_for_select(User.all.to_a.map { |obj| [obj['username'], obj['id']] }), id: 'user-toggle' %>
       <%= f.input :photo, as: :attachinary %>
     </div>
     <div class="form-actions">
