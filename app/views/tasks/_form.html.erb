@@ -1,12 +1,9 @@
 <%= simple_form_for ([@project, @specialty, @task] ), html: { class: "form-group"} do |f| %>
   <div class="form-inputs">
-<<<<<<< HEAD
+
     <%= f.input :name, input_html: { placeholder: "What is your task?", class: 'form-control' } %>
     <%= f.input :description, input_html: { placeholder: "be specific...", class: 'form-control' } %>
     <%= f.input :specialty, :as => :hidden, :input_html => { :value => @specialty } %>
-=======
-    <%# f.input :specialty, input_html: { placeholder: "plumbing, roofing, painting...", class: 'form-control' } %>
->>>>>>> master
     <div class="doublefields">
       <%= f.input :priority, input_html: { placeholder: "1, 2 , 3", class: 'form-control' } %>
       <%= f.input :budget, input_html: { placeholder: "", class: 'form-control' } %>
