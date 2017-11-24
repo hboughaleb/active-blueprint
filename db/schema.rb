@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20171123210239) do
     t.integer "height"
     t.string "format"
     t.string "resource_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
   end
 
@@ -133,7 +133,6 @@ ActiveRecord::Schema.define(version: 20171123210239) do
     t.string "ln_public_profile_url"
     t.string "ln_token"
     t.datetime "ln_token_expiry"
-    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

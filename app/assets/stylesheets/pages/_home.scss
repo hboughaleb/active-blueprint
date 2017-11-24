@@ -188,3 +188,16 @@
 .reviews-product:hover .product-controls-hidden a { color: #E6E6E6 }
 .reviews-product-upvote:hover .product-arrow { border-bottom: 9px solid #5898f1 }
 
+.review-wrapper{
+  display: flex;
+  align-items: center;
+  h3{
+    padding-left: 10px;
+    font-size: 20px;
+  }
+}
+.review-container{
+  p{
+    font-style: italic;
+  }
+}

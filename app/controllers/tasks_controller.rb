@@ -69,17 +69,17 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:progress, :name, :description, :budget, :priority, :start, :finish, :status, :user_id, :specialty_id, :project_id)
+    params.require(:task).permit(:progress, :name, :description, :budget, :priority, :start, :finish, :status, :user_id, :specialty_id, :project_id, :custom_class)
   end
 
   def manage_dependencies
-    if params[:possible_dependencies] 
+    if params[:possible_dependencies]
       params[:possible_dependencies].keys.each do |possible_dependency|
         if params[:dependencies] && params[:dependencies].include?(possible_dependency)
-          if !@task.is_dependent_on.to_a.include?(Task.find(possible_dependency)) 
+          if !@task.is_dependent_on.to_a.include?(Task.find(possible_dependency))
             @task.add_dependency(possible_dependency) rescue false
           end
-        elsif 
+        elsif
           if @task.is_dependent_on.to_a.include?(Task.find(possible_dependency))
             @task.remove_dependency(possible_dependency) rescue false
           end
