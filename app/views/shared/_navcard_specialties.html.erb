@@ -4,6 +4,7 @@
       <h2><%= link_to "#{s.name.upcase}", project_specialty_path(@project,s) %></h2>
       <p><%= s.start.strftime("%Y %b %d") %> - <%= s.finish.strftime("%Y %b %d") %></p>
     </div>
+    <div class="round-color <%= s.custom_class %>"></div>
     <div class="card-avatars">
       <ul class="list-inline">
         <% s.tasks.each do |task| %>

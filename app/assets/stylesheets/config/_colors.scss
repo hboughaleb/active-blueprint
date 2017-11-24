@@ -10,3 +10,76 @@ $gray: #000000;
 $light-gray: #F4F4F4;
 
 $main-color: #5f6876;
+
+#bar > g.bar-wrapper.carpenting-class > g.bar-group > rect.bar-progress {
+  fill: #00649F !important;
+}
+
+.carpenting-class{
+  background-color: #00649F !important;
+}
+
+#bar > g.bar-wrapper.preparation-class > g.bar-group > rect.bar-progress {
+  fill: #01AAC1 !important;
+}
+
+.preparation-class{
+  background-color: #01AAC1 !important;
+}
+
+#bar > g.bar-wrapper.masonry-class > g.bar-group > rect.bar-progress {
+  fill: #00DBE7 !important;
+}
+
+.masonry-class{
+  background-color: #00DBE7 !important;
+}
+
+#bar > g.bar-wrapper.plumbing-class > g.bar-group > rect.bar-progress {
+  fill: #97ECC5 !important;
+}
+
+.plumbing-class{
+  background-color: #97ECC5 !important;
+}
+
+#bar > g.bar-wrapper.hvac-class > g.bar-group > rect.bar-progress {
+  fill: #FC5185 !important;
+}
+
+.hvac-class{
+  background-color: #FC5185 !important;
+}
+
+#bar > g.bar-wrapper.electricity-class > g.bar-group > rect.bar-progress {
+  fill: #F59292 !important;
+}
+
+.electricity-class{
+  background-color: #F59292 !important;
+}
+
+#bar > g.bar-wrapper.tiling-class > g.bar-group > rect.bar-progress {
+  fill: #40A798 !important;
+}
+
+.tiling-class{
+  background-color: #40A798 !important;
+}
+
+#bar > g.bar-wrapper.windows-class > g.bar-group > rect.bar-progress {
+  fill: #476268 !important;
+}
+
+.windows-class{
+  background-color: #476268 !important;
+}
+
+#bar > g.bar-wrapper.roofing-class > g.bar-group > rect.bar-progress {
+  fill: #EE712B !important;
+}
+
+.roofing-class{
+  background-color: #EE712B !important;
+}
+
