@@ -30,6 +30,33 @@
         <button id="gantt-week" type="button" class="gantt-period btn btn-sm btn-secondary">Week</button>
         <button id="gantt-month" type="button" class="gantt-period btn btn-sm btn-secondary">Month</button>
       </div>
+      <div class="tasks-details">
+        <% @specialty.tasks.each do |t| %>
+          <div class="nav-card" style="overflow-y: scroll;">
+            <div class="card-title">
+              <h2><%= t.name %></h2>
+              <% unless t.user.nil?  %>
+                <p>Managed by <%= t.user.first_name %> <%= t.user.last_name %></p>
+              <% end %>
+            </div>
+            <div class="card-details">
+              <ul class="list-inline">
+                <li><p><strong>Description:</strong> <%= t.description %></p></li>
+                <li><p><strong>Budget:</strong> <%= t.budget.to_i %></p></li>
+                <li><p><strong>Current status:</strong> <%= t.status %></p></li>
+                <li><p><strong>Start date:</strong> <%= t.start.strftime("%Y %b %d") %></p></li>
+                <li><p><strong>End date:</strong> <%= t.finish.strftime("%Y %b %d") %></p></li>
+              </ul>
+            </div>
+
+            <%# link_to  "Add a new t", new_project_task_path %>
+            <%# link_to 'Edit', edit_project_specialty_task_path(@task.specialty.project, @task.specialty, @task) %>
+            <%# link_to "X task", project_specialty_task_path(@task.specialty.project, t),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

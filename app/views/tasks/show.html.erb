@@ -1,20 +1,22 @@
-<h1>TASK NAME : <%= @task.name %></h1>
+<% @specialty.tasks.each do |t| %>
 
-<p> Specialty: <%= @task.specialty.name %></p>
-<% unless @task.user.nil?  %>
-  <p><%= @task.user.username %></p>
+  <h1>TASK NAME : <%= t.name %></h1>
+
+  <p> Specialty: <%= t.specialty.name %></p>
+  <% unless t.user.nil?  %>
+    <p>Managed by <%= t.user.first_name %> <%= t.user.last_name %></p>
+  <% end %>
+
+  <p>Priority: <%= t.priority %></p>
+  <p>Description: <%= t.description %></p>
+  <p>Budget<%= t.budget.to_i %></p>
+  <p>Current status: <%= t.status %></p>
+  <p>Start date: <%= t.start %></p>
+  <p>End date: <%= t.finish %></p>
+
+  <%# link_to  "Add a new t", new_project_task_path %>
+  <%# link_to 'Edit', edit_project_specialty_task_path(@task.specialty.project, @task.specialty, @task) %>
+  <%= link_to "X task", project_specialty_task_path(@task.specialty.project, @task.specialty, t),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
 <% end %>
-
-<p><%= @task.priority %></p>
-<p><%= @task.description %></p>
-<p><%= @task.budget %></p>
-<p><%= @task.status %></p>
-<p><%= @task.start %></p>
-<p><%= @task.finish %></p>
-
-<%= link_to "All tasks", project_specialty_tasks_path(@task.specialty.project, @task.specialty) %>
-<%# link_to  "Add a new task", new_project_task_path %>
-<%= link_to 'Edit', edit_project_specialty_task_path(@task.specialty.project, @task.specialty, @task) %>
-<%= link_to "Delete task", project_specialty_task_path(@task.specialty.project, @task.specialty, @task),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
