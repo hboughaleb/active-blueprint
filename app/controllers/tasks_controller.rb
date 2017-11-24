@@ -24,7 +24,7 @@ class TasksController < ApplicationController
     manage_dependencies
     # @task.user = current_user
     @task.specialty = @specialty
-    if @task.save!
+    if @task.save
       redirect_to project_specialty_path(@project, @specialty)
     else
       render :new
@@ -77,11 +77,11 @@ class TasksController < ApplicationController
       params[:possible_dependencies].keys.each do |possible_dependency|
         if params[:dependencies] && params[:dependencies].include?(possible_dependency)
           if !@task.is_dependent_on.to_a.include?(Task.find(possible_dependency)) 
-            @task.add_dependency(possible_dependency)
+            @task.add_dependency(possible_dependency) rescue false
           end
         elsif 
           if @task.is_dependent_on.to_a.include?(Task.find(possible_dependency))
-            @task.remove_dependency(possible_dependency)
+            @task.remove_dependency(possible_dependency) rescue false
           end
         end
       end
