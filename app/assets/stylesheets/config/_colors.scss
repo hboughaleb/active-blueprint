@@ -83,3 +83,27 @@ $main-color: #5f6876;
   background-color: #EE712B !important;
 }
 
+.blue{ background-color: $blue;}
+
+.red{ background-color: $red;}
+
+.green{ background-color: $green;}
+
+.orange{ background-color: $orange;}
+
+.grey{ background-color: $gray;}
+
+.yellow{ background-color: $yellow;}
+
+#bar > g.bar-wrapper.blue > g.bar-group > rect.bar-progress { fill: $blue !important;}
+
+#bar > g.bar-wrapper.red > g.bar-group > rect.bar-progress { fill: $red;}
+
+#bar > g.bar-wrapper.green > g.bar-group > rect.bar-progress { fill: $green;}
+
+#bar > g.bar-wrapper.orange > g.bar-group > rect.bar-progress { fill: $orange;}
+
+#bar > g.bar-wrapper.grey > g.bar-group > rect.bar-progress { fill: $gray;}
+
+#bar > g.bar-wrapper.yellow > g.bar-group > rect.bar-progress { fill: $yellow;}
+

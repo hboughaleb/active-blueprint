@@ -4,6 +4,7 @@
       <h2><%= link_to "#{t.name}" , edit_project_specialty_task_path( @project, @specialty, t) %></h2>
       <p><%= t.start.strftime("%Y %b %d") %> - <%= t.finish.strftime("%Y %b %d") %></p>
     </div>
+    <div class="round-color <%= t.custom_class %>"></div>
     <div class="card-avatars">
       <ul class="list-inline">
         <li>
