@@ -43,8 +43,9 @@
     <div class="row">
       <% @tasks.each do |task| %>
         <div class="col-xs-12 col-sm-3">
-          <%= link_to project_specialty_task_path(task.specialty.project, task.specialty, task) do %>
-          <div class="card project-card" style="background-image: url('<%# cl_image_path project.cover.path rescue ""%>')">
+          <%# link_to project_path(task) do %>
+          <%= link_to project_path(task.specialty.project) do %>
+            <div class="card project-card" style="background-image: url('<%# cl_image_path project.cover.path rescue ""%>')">
             <div class="card-category"></div>
             <div class="card-description">
               <h2> <%= task.name %> </h2>
