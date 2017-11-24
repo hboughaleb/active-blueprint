@@ -1,16 +1,24 @@
 <div class="main-container">
   <div class="row">
     <div class="col-xs-12 head-section">
-      <h1> <%= @project.title.upcase %> <%= link_to "", edit_project_path(@project), class:"fa fa-pencil" %> <%= link_to "", @project, class:'fa fa-trash', method: :delete %></h1>
-      <p> Starting on
-        <span><strong><%= @project.start_date.strftime("%b %d, %Y") %></strong></span>  and expected to finish on
-        <span><strong><%= @project.end_date.strftime("%b %d, %Y") %></strong></span>
-      </p>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-          <%= @project.total_progress %>%
+      <div class="col-xs-6">
+        <h1> <%= @project.title.upcase %> <%= link_to "", edit_project_path(@project), class:"fa fa-pencil" %> <%= link_to "", @project, class:'fa fa-trash', method: :delete %></h1>
+        <p> Starting on
+          <span><strong><%= @project.start_date.strftime("%b %d, %Y") %></strong></span>  and expected to finish on
+          <span><strong><%= @project.end_date.strftime("%b %d, %Y") %></strong></span>
+        </p>
+
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+            <%= @project.total_progress %>%
+          </div>
+          <script>document.querySelector(".progress-bar").style.width = "<%= @project.total_progress %>%";</script>
         </div>
-        <script>document.querySelector(".progress-bar").style.width = "<%= @project.total_progress %>%";</script>
+      </div>
+      <div class="description-box">
+        <p>
+          <%= @project.description %>
+        </p>
       </div>
     </div>
   </div>

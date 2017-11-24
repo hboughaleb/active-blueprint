@@ -30,6 +30,17 @@
   right: 5px;
 }
 
+.edition-options {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  font-size: 15px;
+  a {
+    color: #9AD8D1 ;
+    text-decoration: none;
+  }
+}
+
 .add-card{
   background-color: rgba(151, 151, 151, 0.25);
   padding: 5px;

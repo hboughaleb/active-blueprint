@@ -1,7 +1,7 @@
 
       <%= simple_form_for ([@project, @specialty] ), html: { class: "form-group"} do |f| %>
       <div class="form-inputs">
-        <%= f.input :name, collection: Specialty::SPECIALTIES - @project.specialties.map {|i| i.name }, input_html: {  placeholder: "Plumbing, painting, electricity...", class: 'form-control' } %>
+        <%= f.input :name, collection: Specialty::SPECIALTIES - @project.specialties, input_html: {  placeholder: "Plumbing, painting, electricity...", class: 'form-control' } %>
         <%= f.input :progress, input_html: { placeholder: " 35 (for 35%)  ", class: 'form-control' } %>
         <%= f.input :custom_class, :as => :hidden, :input_html => { :value => "some value" } %>
         <div class="doublefields">
