@@ -31,17 +31,22 @@ class ProjectsController < ApplicationController
     if @project.save
       unless checked_specialties == []
         specialties = project_template[params["generate"]["type"].to_sym][:specialties]
+        dependency = ""
         checked_specialties.each do |checked_specialty|
           specialty = specialties[checked_specialty.downcase.to_sym]
           s = Specialty.create(name: specialty[:name], budget: (budget * specialty[:percentage_budget])/100 ,
             start:  @project.start_date + specialty[:start], finish: @project.end_date - specialty[:finish],
-            progress: 5, dependencies: specialty[:dependencies],
+            progress: 5, dependencies: dependency,
             custom_class: specialty[:custom_class], project: @project)
+          dependency = s.id.to_s
+          task_dependency = ""
           specialty[:tasks].each do |key, task|
-            Task.create!(specialty: s, description: task[:description],
+
+            t = Task.create!(specialty: s, description: task[:description],
               name: task[:name], budget: (s.budget * task[:percentage_budget]) / 100,
-              status: "Stand by", start: s.start + task[:start], finish: s.start + task[:finish],
-              progress: 5, custom_class: task[:custom_class])
+              status: "Stand by", start: s.start + task[:start], finish: s.finish - task[:finish],
+              progress: 5, custom_class: task[:custom_class], dependencies: task_dependency)
+            task_dependency = t.id.to_s
           end
         end
       end

@@ -8,7 +8,7 @@ class Specialty < ApplicationRecord
 
   has_many :users, through: :tasks
 
-  SPECIALTIES = ['Preparation','Masonry','Plumbing', 'HVAC', 'Electricity', 'Carpentry', 'Tiling', 'Windows', 'Roofing']
+  SPECIALTIES = ['Preparation','Masonry','Plumbing', 'Electricity','HVAC', 'Tiling', 'Carpentry']
 
   def set_progress
     total = 0;
