@@ -1,7 +1,7 @@
-Task.destroy_all
-Specialty.destroy_all
-Project.destroy_all
-User.destroy_all
+# Task.destroy_all
+# Specialty.destroy_all
+# Project.destroy_all
+# User.destroy_all
 
 user1 = User.create({
   roles: "manager",

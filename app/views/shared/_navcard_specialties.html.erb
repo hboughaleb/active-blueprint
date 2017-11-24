@@ -18,7 +18,7 @@
             <% elsif  task.user.photo.nil? %>
               <% avatar_url = "http://placehold.it/30x30" %>
             <% else %>
-              <%= avatar_url = cl_image_tag task.user.photo.path, height: 30, width: 30, :crop=>"fill" %>
+              <% avatar_url = cl_image_tag task.user.photo.path, height: 30, width: 30, :crop=>"fill" %>
             <% end %>
             <%= image_tag avatar_url, class: "avatar "%>
           <% end %>
@@ -29,7 +29,8 @@
   </div>
 <% end %>
  <div class="add-card">
-  <span><%= link_to "", new_project_specialty_path(@project), class:"fa fa-plus" %></span>
+  <span><%= link_to "", new_project_specialty_path(@project), class:"fa fa-plus" %>
+  </span>
 </div>
 
 
