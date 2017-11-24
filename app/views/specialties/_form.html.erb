@@ -1,9 +1,9 @@
 
       <%= simple_form_for ([@project, @specialty] ), html: { class: "form-group"} do |f| %>
       <div class="form-inputs">
-        <%= f.input :name, input_html: { placeholder: "Plumbing, painting, electricity...", class: 'form-control' } %>
+        <%= f.input :name, collection: Specialty::SPECIALTIES - @project.specialties.map {|i| i.name }, input_html: {  placeholder: "Plumbing, painting, electricity...", class: 'form-control' } %>
         <%= f.input :progress, input_html: { placeholder: " 35 (for 35%)  ", class: 'form-control' } %>
-        <%# f.input :custom_class, collection: [ "blue", "red", "green", "orange", "grey", "brown", "violet", "yellow", "pink"], input_html: {  class: 'form-control' } %>
+        <%= f.input :custom_class, :as => :hidden, :input_html => { :value => "some value" } %>
         <div class="doublefields">
           <%= f.input :start, as: :string, input_html: { id: "start_date",placeholder: "", class: 'form-control datepicker' } %>
           <%= f.input :finish, as: :string, input_html: { id: "end_date", placeholder: "", class: 'form-control datepicker' } %>
@@ -31,6 +31,12 @@
 <% end %>
 <%= content_for :after_js do %>
   <script>
+    function myScript(){
+      spec = $("#specialty_name").val().toLowerCase()
+      $("#specialty_custom_class").val(spec + "-class")
+      console.log(spec + "-class");
+    }
+    document.getElementById("specialty_name").addEventListener("change", myScript);
     $(document).ready(function(){
       var options = [];
 

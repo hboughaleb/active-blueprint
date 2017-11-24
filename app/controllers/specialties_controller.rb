@@ -10,8 +10,8 @@ class SpecialtiesController < ApplicationController
     @specialty = Specialty.new(specialty_params)
     manage_dependencies
     @specialty.project = @project
-    if @specialty.save
-      redirect_to project_specialty_path(@project, @specialty)
+    if @specialty.save!
+      redirect_to project_path(@project)
     else
       render :new
     end
@@ -64,18 +64,23 @@ class SpecialtiesController < ApplicationController
   end
 
   def manage_dependencies
-    if params[:possible_dependencies] 
+    if params[:possible_dependencies]
       params[:possible_dependencies].keys.each do |possible_dependency|
         if params[:dependencies] && params[:dependencies].include?(possible_dependency)
-          if !@specialty.is_dependent_on.to_a.include?(Specialty.find(possible_dependency)) 
+<<<<<<< HEAD
+          if !@specialty.is_dependent_on.to_a.include?(Specialty.find(possible_dependency))
+            @specialty.add_dependency(possible_dependency)
+=======
+          if !@specialty.is_dependent_on.to_a.include?(Specialty.find(possible_dependency))
             @specialty.add_dependency(possible_dependency) rescue false
+>>>>>>> master
           end
-        elsif 
+        elsif
           if @specialty.is_dependent_on.to_a.include?(Specialty.find(possible_dependency))
             @specialty.remove_dependency(possible_dependency) rescue false
           end
         end
       end
     end
-  end 
+  end
 end
