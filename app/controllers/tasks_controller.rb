@@ -24,7 +24,7 @@ class TasksController < ApplicationController
     manage_dependencies
     # @task.user = current_user
     @task.specialty = @specialty
-    if @task.save!
+    if @task.save
       redirect_to project_specialty_path(@project, @specialty)
     else
       render :new

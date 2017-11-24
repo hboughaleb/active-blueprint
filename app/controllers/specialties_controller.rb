@@ -10,7 +10,7 @@ class SpecialtiesController < ApplicationController
     @specialty = Specialty.new(specialty_params)
     manage_dependencies
     @specialty.project = @project
-    if @specialty.save!
+    if @specialty.save
       redirect_to project_specialty_path(@project, @specialty)
     else
       render :new
