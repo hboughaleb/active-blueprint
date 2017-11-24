@@ -1,13 +1,4 @@
 <%= simple_form_for ([@project] ), html: { class: "form-group"} do |f| %>
-  <% if @project.errors.any? %>
-    <div id=“error_explanation”>
-      <ul>
-      <% @project.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="form-inputs">
 
     <%= f.input :title, input_html: { placeholder: "Name your project", class: 'form-control' } %>
