@@ -35,16 +35,16 @@ class Project < ApplicationRecord
           tasks: {
             task1: {
               name: "Phase 1",
-              description: "Make it happen",
+              description: "Install cabinetry",
               status: "",
               start: 0,
               finish: 10,
-              percentage_budget: 25,
+              percentage_budget: 50,
               custom_class: "task1"
             },
           task2: {
               name: "Phase 2",
-              description: "Make it happen 2",
+              description: "Drywall installation",
               status: "",
               start: 10,
               finish: 20,
@@ -53,11 +53,11 @@ class Project < ApplicationRecord
             },
             task3: {
               name: "Phase 3",
-              description: "Make it happen 3",
+              description: "Molding installation",
               status: "",
               start: 20,
               finish: 30,
-              percentage_budget: 50,
+              percentage_budget: 25,
               custom_class: "task3"
             }
           }
@@ -72,29 +72,29 @@ class Project < ApplicationRecord
           tasks: {
             task1: {
               name: "Phase 1",
-              description: "Make it happen",
+              description: "Drain/Waste/Vent installation",
               status: "",
               start: 0,
               finish: 10,
-              percentage_budget: 25,
+              percentage_budget: 31,
               custom_class: "task1"
             },
           task2: {
               name: "Phase 2",
-              description: "Make it happen 2",
+              description: "Water and gas piping",
               status: "",
               start: 10,
               finish: 20,
-              percentage_budget: 25,
+              percentage_budget: 32,
               custom_class: "task2"
             },
             task3: {
               name: "Phase 3",
-              description: "Make it happen 3",
+              description: "Fixture and faucet installation",
               status: "",
               start: 20,
               finish: 30,
-              percentage_budget: 50,
+              percentage_budget: 37,
               custom_class: "task3"
             }
           }
