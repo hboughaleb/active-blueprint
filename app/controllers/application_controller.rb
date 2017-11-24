@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:photo, :first_name, :last_name])
   end
 
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+
   # def keep_away
   #   if !current_user.is_ready
   #     redirect_to registrations_edit_path

@@ -2,13 +2,12 @@
 
 .banner {
   color: white;
-  text-align: center;
   height: calc(100vh - 70px);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 
 .banner h1 {
@@ -20,8 +19,34 @@
   font-size: 25px;
   font-weight: lighter;
   color: rgb(255, 255, 255);
-  opacity: 0.6;
   margin-bottom: 30px;
+  margin-top: 0;
+}
+
+.banner-content{
+  text-align: left;
+      padding-left: 85px;
+  h1{
+    margin-bottom: 0;
+    color: white;
+    text-align: left;
+  }
+  h3{
+    font-size: 20px;
+
+    font-family: $light-font;
+  }
+  .btn-success{
+    background-color: #04194C  !important;
+    border: none !important;
+    font-size: 20px;
+    color: #9bdcd4;
+    font-weight: bolder;
+    &:hover{
+       background-color: #9bdcd4  !important;
+       color: #04194C !important;
+    }
+  }
 }
 
 .divider{
