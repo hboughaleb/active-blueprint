@@ -10,4 +10,11 @@ class Specialty < ApplicationRecord
 
   SPECIALTIES = ['Preparation','Masonry','Plumbing', 'HVAC', 'Electricity', 'Carpentry', 'Tiling', 'Windows', 'Roofing']
 
+  def set_progress
+    total = 0;
+    if tasks.any?
+      tasks.each { |task| total += task.progress }
+      update(progress: total / tasks.length)
+    end
+  end
 end

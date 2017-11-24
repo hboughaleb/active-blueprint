@@ -1,17 +1,12 @@
 <%= simple_form_for ([@project, @specialty, @task] ), html: { class: "form-group"} do |f| %>
-  <% if @task.errors.any? %>
-    <div id=“error_explanation”>
-      <ul>
-        <% @task.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="form-inputs">
+<<<<<<< HEAD
     <%= f.input :name, input_html: { placeholder: "What is your task?", class: 'form-control' } %>
     <%= f.input :description, input_html: { placeholder: "be specific...", class: 'form-control' } %>
     <%= f.input :specialty, :as => :hidden, :input_html => { :value => @specialty } %>
+=======
+    <%# f.input :specialty, input_html: { placeholder: "plumbing, roofing, painting...", class: 'form-control' } %>
+>>>>>>> master
     <div class="doublefields">
       <%= f.input :priority, input_html: { placeholder: "1, 2 , 3", class: 'form-control' } %>
       <%= f.input :budget, input_html: { placeholder: "", class: 'form-control' } %>
@@ -40,7 +35,7 @@
       <%= f.input :finish, as: :string, input_html: { id: "end_date", placeholder: "", class: 'form-control datepicker' } %>
     </div>
     <div class="doublefields">
-      <%= f.select :user, options_for_select(User.all.to_a.map { |obj| [obj['username'], obj['id']] }), id: 'user-toggle' %>
+      <%= f.select :user_id, options_for_select(User.all.to_a.map { |obj| [obj['username'], obj['id']] }), id: 'user-toggle' %>
       <%= f.input :photo, as: :attachinary %>
     </div>
     <div class="form-actions">
