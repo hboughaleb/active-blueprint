@@ -1,7 +1,7 @@
 <div class="main-container">
   <div class="row">
     <div class="col-xs-12 head-section">
-      <h1> <%= link_to "", project_path(@project), class:"fa fa-chevron-left" %> <%=  @specialty.name.upcase %>  <%= link_to "", edit_project_specialty_path(@project, @specialty), class:"fa fa-pencil" %> <%= link_to "", project_specialty_path(@specialty), class:'fa fa-trash', method: :delete %> </h1>
+      <h1> <%= link_to "", project_path(@project), class:"fa fa-chevron-left" %> <%=  @specialty.name.upcase %>  <span> <%= link_to "", edit_project_specialty_path(@project, @specialty), class:"fa fa-pencil" %> <%= link_to "", project_specialty_path(@specialty), class:'fa fa-trash', method: :delete %></span> </h1>
       <p>
         <span><%= @specialty.start.strftime("%d %b %Y ") %></span> -
         <span><%= @specialty.finish.strftime("%d %b %Y ") %></span> -

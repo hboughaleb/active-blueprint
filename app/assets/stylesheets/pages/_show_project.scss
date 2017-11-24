@@ -16,6 +16,17 @@
     text-align: left;
     font-family: $light-font;
   }
+  a{
+    text-decoration: none;
+    color: #9DDCD4;
+  }
+}
+
+.description-box {
+  padding: 25px;
+  overflow-y: scroll;
+  text-align: justify;
+  max-height: 120px;
 }
 
 #date{
