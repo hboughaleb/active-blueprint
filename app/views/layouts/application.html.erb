@@ -14,11 +14,15 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render "shared/navbar" %>
-    <div class="height" style="height: 70px;"></div>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= render "shared/footer" %>
+    <div id="master-container">
+      <div id="header">
+        <%= render "shared/navbar" %>
+        <div class="height" style="height: 70px;"></div>
+        <%= render 'shared/flashes' %>
+      </div>
+      <div id="yield-container"><%= yield %></div>
+      <div id="footer"><%= render "shared/footer" %></div>
+    </div>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
     <%= yield(:after_js) %>

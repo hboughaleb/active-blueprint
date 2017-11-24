@@ -1,0 +1,22 @@
+html, body {
+   margin: 0;
+   padding: 0;
+   height: 100%;
+}
+
+#master-container {
+	min-height: 100%;
+	position: relative;
+}
+
+#yield-container {
+	padding-bottom: 100px;
+}
+#footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+	background: #6cf;
+	overflow: hidden;
+}
