@@ -1,15 +1,6 @@
 <%= simple_form_for ([@project, @specialty, @task] ), html: { class: "form-group"} do |f| %>
-  <% if @task.errors.any? %>
-    <div id=“error_explanation”>
-      <ul>
-        <% @task.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="form-inputs">
-    <%= f.input :specialty, input_html: { placeholder: "plumbing, roofing, painting...", class: 'form-control' } %>
+    <%# f.input :specialty, input_html: { placeholder: "plumbing, roofing, painting...", class: 'form-control' } %>
     <div class="doublefields">
       <%= f.input :priority, input_html: { placeholder: "1, 2 , 3", class: 'form-control' } %>
       <%= f.input :budget, input_html: { placeholder: "", class: 'form-control' } %>

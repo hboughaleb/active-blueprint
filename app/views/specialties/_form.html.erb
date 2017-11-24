@@ -1,15 +1,5 @@
 
       <%= simple_form_for ([@project, @specialty] ), html: { class: "form-group"} do |f| %>
-        <% if @specialty.errors.any? %>
-          <div id=“error_explanation”>
-          <ul>
-            <% @specialty.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-          </div>
-        <% end %>
-
       <div class="form-inputs">
         <%= f.input :name, input_html: { placeholder: "Plumbing, painting, electricity...", class: 'form-control' } %>
         <%= f.input :progress, input_html: { placeholder: " 35 (for 35%)  ", class: 'form-control' } %>
